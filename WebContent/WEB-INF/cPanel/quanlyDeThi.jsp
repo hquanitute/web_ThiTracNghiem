@@ -1,3 +1,5 @@
+<%@page import="Objects.DeThi"%>
+<%@page import="Objects.dsDeThi"%>
 <%@page import="java.util.List"%>
 <%@page import="Objects.CauHoi"%>
 <%@page import="Objects.dsCauHoi"%>
@@ -46,9 +48,9 @@
 				<ul class="nav">
 					<li class="nav-item  "><a class="nav-link"
 						href="redirectCpanel"> Trang Chủ </a></li>
-					<li class="nav-item active"><a class="nav-link"
+					<li class="nav-item "><a class="nav-link"
 						href="redirectCauHoi"> Câu hỏi </a></li>
-					<li class="nav-item"><a class="nav-link" href="redirectDeThi">
+					<li class="nav-item active"><a class="nav-link" href="redirectDeThi">
 							Đề thi </a></li>
 
 					<li class="nav-item "><a class="nav-link"
@@ -102,7 +104,7 @@
 							<div class="card-header card-header-primary">
 								<div class="row">
 									<h4 class="card-title col-xs-12 my-auto ml-sm-5">Danh
-										sách câu hỏi</h4>
+										sách đề thi</h4>
 									<a class="btn btn-success col-xs-12 ml-auto mr-sm-5"
 										href="redirectAddCauHoi"> <i class="fa fa-plus"></i> Thêm
 										câu hỏi
@@ -115,30 +117,47 @@
 										<thead class=" text-primary">
 											<tr>
 												<th scope="col">Mã</th>
-												<th scope="col">Nội dung câu hỏi</th>
-												<th scope="col">Câu trả lời</th>
-												<th scope="col">Đáp án</th>
-												<th scope="col">Mức độ</th>
+												<th scope="col">Học kỳ</th>
+												<th scope="col">Thời lượng</th>
+												<th scope="col">Dễ</th>
+												<th scope="col">TB</th>
+												<th scope="col">Khó</th>
+												<th scope="col">Thang điểm</th>
+												<th scope="col">Thời gian Bắt đầu</th>
+												<th scope="col">Kích hoạt</th>
 											</tr>
 										</thead>
 										<tbody>
 											<%
-												dsCauHoi obj = (dsCauHoi) request.getAttribute("dsCH");
-												List<CauHoi> ds = (List<CauHoi>) obj.getDs();
+												dsDeThi obj = (dsDeThi) request.getAttribute("dsDT");
+												List<DeThi> ds = (List<DeThi>) obj.getDs();
 											%>
 
 											<%
 												for (int i = 0; i < ds.size(); i++) {
 											%>
 											<tr>
-												<td><%=ds.get(i).getMaCauHoi()%></td>
-												<td><%=ds.get(i).getNoiDungCauHoi()%></td>
-												<td><%=ds.get(i).isDapAn_A()%>...</td>
-												<td><%=ds.get(i).getDapAnDung()%></td>
-												<td><%=ds.get(i).getMaMucDo()%></td>
+												<td><%=ds.get(i).getMaDeThi()%></td>
+												<td><%=ds.get(i).getHocKy()%></td>
+												<td><%=ds.get(i).getThoiLuong()%></td>
+												<td><%=ds.get(i).getSoCHDe()%></td>
+												<td><%=ds.get(i).getSoCHTB()%></td>
+												<td><%=ds.get(i).getSoCHKho()%></td>
+												<td><%=ds.get(i).getThangDiem()%></td>
+												<td><%=ds.get(i).getThoiGianBatDau()%></td>
+												<td><%=ds.get(i).isIsActive()%></td>
 												<td>
-                                                    <a href="redirectSuaCauHoi?maCH=<%=ds.get(i).getMaCauHoi()%>&ndCH=<%=ds.get(i).getNoiDungCauHoi()%>&daA=<%=ds.get(i).isDapAn_A()%>&daB=<%=ds.get(i).isDapAn_B()%>&daC=<%=ds.get(i).isDapAn_C()%>&daD=<%=ds.get(i).isDapAn_D()%>&daDung=<%=ds.get(i).getDapAnDung()%>&mucDo=<%=ds.get(i).getMaMucDo()%>" class="btn btn-info"><i class="fa fa-pencil"></i></a>
-                                                    <a href="redirectXoaCauHoi" class="btn btn-warning"><i class="fa fa-trash"></i></a>
+                                                    <a href="redirectSuaDeThi?maDeThi=<%=ds.get(i).getMaDeThi()%>&
+											hocKy=<%=ds.get(i).getHocKy()%>&
+											thoiLuong=<%=ds.get(i).getThoiLuong()%>&
+											soCHDe=<%=ds.get(i).getSoCHDe()%>&
+											soCHTB=<%=ds.get(i).getSoCHTB()%>&
+											soCHKho=<%=ds.get(i).getSoCHKho()%>&
+											thangDiem=<%=ds.get(i).getThangDiem()%>&
+											thoiGianBatDau=<%=ds.get(i).getThoiGianBatDau()%>&
+											isActive=<%=ds.get(i).isIsActive()%>
+											" class="btn btn-info"><i class="fa fa-pencil"></i></a>
+                                                    <a href="XoaCauHoi" class="btn btn-warning"><i class="fa fa-trash"></i></a>
                                                     
                                                 </td>
 											</tr>

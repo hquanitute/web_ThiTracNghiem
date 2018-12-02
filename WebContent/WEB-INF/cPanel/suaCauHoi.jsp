@@ -205,14 +205,7 @@
 					<li><a href="#"> Contact </a></li>
 				</ul>
 			</nav>
-			<div class="#">
-				&copy;
-				<script>
-					document.write(new Date().getFullYear())
-				</script>
-				, made with <i class="material-icons">favorite</i> by <a href="#"
-					target="_blank">Group 1</a> for a demo web.
-			</div>
+			
 		</div>
 	</footer>
 
