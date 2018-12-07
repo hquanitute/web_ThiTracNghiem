@@ -2,14 +2,8 @@ package Objects;
 
 public class LopHoc {
 	private int MaLopHoc;
-	private int MaDeThi;
+	private String TenLopHoc;
 	private int HocKy;
-	public int getMaDeThi() {
-		return MaDeThi;
-	}
-	public void setMaDeThi(int maDeThi) {
-		MaDeThi = maDeThi;
-	}
 	public int getMaLopHoc() {
 		return MaLopHoc;
 	}
@@ -19,15 +13,22 @@ public class LopHoc {
 	public int getHocKy() {
 		return HocKy;
 	}
-	public void setMaCauHoi(int hocKy) {
+	public void setHocKy(int hocKy) {
 		HocKy = hocKy;
 	}
-	public LopHoc(int maLopHoc,int maDeThi,int hocKy)
+
+	public String getTenLopHoc() {
+		return TenLopHoc;
+	}
+	public void setTenLopHoc(String tenLopHoc) {
+		TenLopHoc = tenLopHoc;
+	}
+	public LopHoc(int maLopHoc,String tenLopHoc,int hocKy)
 	{
 		super();
-		MaLopHoc = maLopHoc;
-		MaDeThi=maDeThi;
+		TenLopHoc = tenLopHoc;
 		HocKy=hocKy;
+		MaLopHoc = maLopHoc;
 	}
 	public LopHoc()
 	{

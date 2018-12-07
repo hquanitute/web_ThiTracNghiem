@@ -1,7 +1,7 @@
 package Controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,14 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import Model.CAUHOI_DAO;
-
-
-
-/**
- * Servlet implementation class redirectSuaCauHoi
- */
 @WebServlet("/redirectSuaCauHoi")
 public class redirectSuaCauHoi extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -35,7 +27,7 @@ public class redirectSuaCauHoi extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=UTF-8"); 
+		response.setContentType("text/html;charset=utf-8"); 
 		HttpSession ss= request.getSession();
 		String s= (String)ss.getAttribute("username");
 		if(s==null||s=="") {

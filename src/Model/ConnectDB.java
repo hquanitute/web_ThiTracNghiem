@@ -23,7 +23,7 @@ public class ConnectDB
 		
 		    try {
 				conn =
-				   DriverManager.getConnection("jdbc:mysql://localhost:3306/web?autoReconnect=true&useSSL=false", "cauhoi", "123");
+				   DriverManager.getConnection("jdbc:mysql://localhost:3306/web?autoReconnect=true&useSSL=false", "root", "root");
 			} catch (SQLException ex) {
 			    System.out.println("SQLException: " + ex.getMessage());
 			    System.out.println("SQLState: " + ex.getSQLState());

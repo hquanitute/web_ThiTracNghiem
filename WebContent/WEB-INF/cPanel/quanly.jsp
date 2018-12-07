@@ -39,25 +39,19 @@
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
-					<li class="nav-item active "><a class="nav-link" href="redirectCpanel"> 
-							Trang Chủ
-					</a></li>
-					<li class="nav-item"><a class="nav-link" href="redirectCauHoi">
-							Câu hỏi
-					</a></li>
-					<li class="nav-item"><a class="nav-link" href="redirectDeThi">
-							Đề thi
-					</a></li>
+					<li class="nav-item active "><a class="nav-link"
+						href="redirectCpanel"> Trang Chủ </a></li>
+					<li class="nav-item "><a class="nav-link"
+						href="redirectCauHoi"> Câu Hỏi </a></li>
+					<li class="nav-item "><a class="nav-link" href="redirectDeThi">
+							Đề Thi </a></li>
 
-					<li class="nav-item "><a class="nav-link" href="redirectThiSinhLopHoc">
-							Thí sinh và lớp học
+				<li class="nav-item "><a class="nav-link" href="redirectThiSinhLopHoc">
+							Thí Sinh
 					</a></li>
-					<!-- <li class="nav-item active-pro ">
-                <a class="nav-link" href="./upgrade.html">
-                    <i class="material-icons">unarchive</i>
-                    <p>Upgrade to PRO</p>
-                </a>
-            </li> -->
+						<li class="nav-item "><a class="nav-link" href="redirectLopHoc">
+							Lớp Học
+					</a></li>
 				</ul>
 			</div>
 		</div>
@@ -101,23 +95,6 @@
 			</div>
 		</div>
 	</div>
-	<footer class="footer">
-		<div class="container-fluid">
-			<nav class="float-left">
-				<ul>
-					<li></li>
-					<li></li>
-					<li><a href="#"> Group 1 </a></li>
-					<li><a href="#"> Licenses </a></li>
-					<li><a href="#"> About </a></li>
-					<li><a href="#"> Contact </a></li>
-				</ul>
-			</nav>
-			
-		</div>
-	</footer>
-
-
 </body>
 
 </html>

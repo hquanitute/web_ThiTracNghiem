@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Model.DANGNHAP_DAO;
+import Objects.DangNhapInfo;
+
 
 
 /**
@@ -52,40 +55,60 @@ public class login extends HttpServlet {
 		if(s==null||s.equals("")) {  
 			String userName= request.getParameter("inputUserName");
 			String passWord = request.getParameter("inputPassword");
-			ss.setAttribute("pass", passWord);
-			ss.setAttribute("username", userName);
-//			LOGIN_DAO check = null;
-//			try {
-//				check = new LOGIN_DAO(ss.getAttribute("host").toString(),ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
-//			} catch (ClassNotFoundException e1) {
-//				e1.printStackTrace();
-//			}
-//			try {
-//				if(check.checkUser(userName, passWord)) {  
-//					
-//					rd = request.getRequestDispatcher("WEB-INF/cpanel/quanly.jsp");
-//					rd.forward(request, response);
-//				}
-//				else{  
-//			        request.setAttribute("error", "Username hoặc password không đúng, vui lòng nhập lại");  
-//			        rd=request.getRequestDispatcher("WEB-INF/Login.jsp");  
-//			        rd.forward(request,response);  
-//			    }  
-//			} catch (ClassNotFoundException | SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-			if(userName.equals("sv")) {
-				rd=request.getRequestDispatcher("redirectTrangThi");  
-		        rd.forward(request,response);  
-			}if (userName.equals("gv")) {
-				rd=request.getRequestDispatcher("redirectCpanel");  
-		        rd.forward(request,response);  
+			
+			DANGNHAP_DAO dn = null;
+			try {
+				dn= new DANGNHAP_DAO(userName,passWord);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			DangNhapInfo tk=null;
+			try {
+				 tk = dn.getUserAccount(userName, passWord);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			if(tk != null) {
+				ss.setAttribute("pass", passWord);
+				ss.setAttribute("username", userName);
+				ss.setAttribute("mataikhoan", String.valueOf(tk.getMaTaiKhoan()));
+				if(tk.getRole()==1) {
+					ss.setAttribute("role", "thisinh");
+					rd=request.getRequestDispatcher("redirectTrangThi");
+				}
+				if(tk.getRole()==2) {
+					ss.setAttribute("role", "qlcauhoi");
+					rd=request.getRequestDispatcher("redirectCpanel");  
+				}
+				if(tk.getRole()==3) {
+					ss.setAttribute("role", "qldethi");
+					rd=request.getRequestDispatcher("redirectCpanel");  
+				}
+				if(tk.getRole()==4) {
+					ss.setAttribute("role", "qlthisinh");
+					rd=request.getRequestDispatcher("redirectCpanel");  
+				}
+				rd.forward(request,response);  
+			}
+			else {
+				response.sendRedirect("redirectLogin");
 			}
 		}
 		else {
-			rd = request.getRequestDispatcher("WEB-INF/cPanel/quanly.jsp");
-			rd.include(request, response);
+			String role=(String)ss.getAttribute("role");
+			if(role.equals("thisinh")) {
+				rd=request.getRequestDispatcher("redirectTrangThi");
+			}
+			if(role.equals("qlcauhoi")) {
+				rd=request.getRequestDispatcher("redirectCpanel");
+			}
+			if(role.equals("qldethi")) {
+				rd=request.getRequestDispatcher("redirectCpanel");
+			}
+			if(role.equals("qlthisinh")) {
+				rd=request.getRequestDispatcher("redirectCpanel");
+			}
+			rd.forward(request, response);
 		}
 	}
 

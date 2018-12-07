@@ -1,6 +1,9 @@
 package Controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import Model.userDeThi_DAO;
+import Objects.DeThiTheoUser;
+import Objects.dsDeThiTheoUser;
 
 /**
  * Servlet implementation class redirectTrangThi
@@ -38,7 +45,23 @@ public class redirectTrangThi extends HttpServlet {
 	        rd.include(request,response); 
 		}
 		else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/client/ThiOnline.jsp");
+			List<DeThiTheoUser> dethi= new ArrayList<>();
+			dsDeThiTheoUser ds = new dsDeThiTheoUser();
+			userDeThi_DAO thongtin = null;
+			try {
+				thongtin = new userDeThi_DAO(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			String MaTk= (String)ss.getAttribute("mataikhoan");
+			try {
+				dethi=thongtin.getListExamByUser(Integer.parseInt(MaTk));
+				ds.setDs(dethi);
+			} catch (NumberFormatException | SQLException e) {
+				e.printStackTrace();
+			}
+			request.setAttribute("dsDeThi", ds);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/client/ThiTracNghiem.jsp");
 			dispatcher.forward(request, response);
 		}
 	}

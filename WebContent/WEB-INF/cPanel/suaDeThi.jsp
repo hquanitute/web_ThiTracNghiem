@@ -48,18 +48,16 @@
 					<li class="nav-item  "><a class="nav-link"
 						href="redirectCpanel"> Trang Chủ </a></li>
 					<li class="nav-item "><a class="nav-link"
-						href="redirectCauHoi"> Câu hỏi </a></li>
-					<li class="nav-item active"><a class="nav-link"
-						href="redirectDeThi"> Đề thi </a></li>
+						href="redirectCauHoi"> Câu Hỏi </a></li>
+					<li class="nav-item active"><a class="nav-link" href="redirectDeThi">
+							Đề Thi </a></li>
 
-					<li class="nav-item "><a class="nav-link"
-						href="redirectThiSinhLopHoc"> Thí sinh và lớp học </a></li>
-					<!-- <li class="nav-item active-pro ">
-                <a class="nav-link" href="./upgrade.html">
-                    <i class="material-icons">unarchive</i>
-                    <p>Upgrade to PRO</p>
-                </a>
-            </li> -->
+				<li class="nav-item "><a class="nav-link" href="redirectThiSinhLopHoc">
+							Thí Sinh
+					</a></li>
+						<li class="nav-item "><a class="nav-link" href="redirectLopHoc">
+							Lớp Học
+					</a></li>
 				</ul>
 			</div>
 		</div>
@@ -113,14 +111,14 @@
 											<div class="row">
 												<input type="text" class="form-control form-control-sm"
 													name="e_maDT" aria-describedby="helpId" class="col-sm-3"
-													style="text-align: center;" value="${param.maDeThi}">
+													style="text-align: center;" value="${param.maDeThi}" required>
 												<div class="col-sm-2">
 													<h5 class="mb-0 mt-2">Học kỳ:</h5>
 												</div>
 												<div class="col-sm-1">
 													<input type="text" class="form-control form-control-sm"
 														name="e_hocKy" aria-describedby="helpId" class="col-sm-3"
-														style="text-align: center;" value="${param.hocKy}">
+														style="text-align: center;" value="${param.hocKy}" required>
 												</div>
 
 											</div>
@@ -132,7 +130,7 @@
 													<input type="text" class="form-control form-control-sm"
 														name="e_thoiGianBatDau" aria-describedby="helpId"
 														class="col-sm-3" style="text-align: center;"
-														value="${param.thoiGianBatDau}">
+														value="${param.thoiGianBatDau}" required>
 												</div>
 												<div>Cú pháp: yyyy-mm-dd HH:mm:ss (Nhập đúng cú pháp nha)</div>
 											</div>
@@ -144,7 +142,7 @@
 													<input type="text" class="form-control form-control-sm"
 														name="e_thoiLuong" aria-describedby="helpId"
 														class="col-sm-3" style="text-align: center;"
-														value="${param.thoiLuong}">
+														value="${param.thoiLuong}" required>
 												</div>
 											</div>
 											<div class="row">
@@ -154,7 +152,7 @@
 												<div class="col-sm-1">
 													<input type="text" class="form-control form-control-sm"
 														name="e_soCHDe" aria-describedby="helpId" class="col-sm-3"
-														style="text-align: center;" value="${param.soCHDe}">
+														style="text-align: center;" value="${param.soCHDe}" required>
 												</div>
 												<div class="col-sm-2	">
 													<h5 class="mb-0 mt-2">Câu TB:</h5>
@@ -162,7 +160,7 @@
 												<div class="col-sm-1">
 													<input type="text" class="form-control form-control-sm"
 														name="e_soCHTB" aria-describedby="helpId" class="col-sm-3"
-														style="text-align: center;" value="${param.soCHTB}">
+														style="text-align: center;" value="${param.soCHTB}" required>
 												</div>
 												<div class="col-sm-2	">
 													<h5 class="mb-0 mt-2">Câu khó:</h5>
@@ -171,7 +169,7 @@
 													<input type="text" class="form-control form-control-sm"
 														name="e_soCHKho" aria-describedby="helpId"
 														class="col-sm-3" style="text-align: center;"
-														value="${param.soCHKho}">
+														value="${param.soCHKho}" required>
 												</div>
 											</div>
 											<div class="row">
@@ -182,7 +180,7 @@
 													<input type="text" class="form-control form-control-sm"
 														name="e_thangDiem" aria-describedby="helpId"
 														class="col-sm-3" style="text-align: center;"
-														value="${param.thangDiem}">
+														value="${param.thangDiem}" required>
 												</div>
 												<div class="col-sm-2	">
 													<h5 class="mb-0 mt-2">Kích hoạt:</h5>
@@ -192,7 +190,7 @@
 													<input type="text" class="form-control form-control-sm"
 														name="e_isActive" aria-describedby="helpId"
 														class="col-sm-3" style="text-align: center;"
-														value="${param.isActive}">
+														value="${param.isActive}" required>
 												</div>
 											</div>
 										</div>
@@ -215,23 +213,6 @@
 			</div>
 		</div>
 	</div>
-	</div>
-	</div>
-	<footer class="footer">
-		<div class="container-fluid">
-			<nav class="float-left">
-				<ul>
-					<li></li>
-					<li></li>
-					<li><a href="#"> Group 1 </a></li>
-					<li><a href="#"> Licenses </a></li>
-					<li><a href="#"> About </a></li>
-					<li><a href="#"> Contact </a></li>
-				</ul>
-			</nav>
-
-		</div>
-	</footer>
 </body>
 
 </html>

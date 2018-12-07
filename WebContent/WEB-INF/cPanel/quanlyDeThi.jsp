@@ -49,18 +49,16 @@
 					<li class="nav-item  "><a class="nav-link"
 						href="redirectCpanel"> Trang Chủ </a></li>
 					<li class="nav-item "><a class="nav-link"
-						href="redirectCauHoi"> Câu hỏi </a></li>
+						href="redirectCauHoi"> Câu Hỏi </a></li>
 					<li class="nav-item active"><a class="nav-link" href="redirectDeThi">
-							Đề thi </a></li>
+							Đề Thi </a></li>
 
-					<li class="nav-item "><a class="nav-link"
-						href="redirectThiSinhLopHoc"> Thí sinh và lớp học </a></li>
-					<!-- <li class="nav-item active-pro ">
-                <a class="nav-link" href="./upgrade.html">
-                    <i class="material-icons">unarchive</i>
-                    <p>Upgrade to PRO</p>
-                </a>
-            </li> -->
+				<li class="nav-item "><a class="nav-link" href="redirectThiSinhLopHoc">
+							Thí Sinh
+					</a></li>
+						<li class="nav-item "><a class="nav-link" href="redirectLopHoc">
+							Lớp Học
+					</a></li>
 				</ul>
 			</div>
 		</div>
@@ -103,11 +101,12 @@
 						<div class="card ">
 							<div class="card-header card-header-primary">
 								<div class="row">
-									<h4 class="card-title col-xs-12 my-auto ml-sm-5">Danh
-										sách đề thi</h4>
+									<h4 class="card-title col-xs-12 my-auto ml-sm-5">Danh sách đề thi</h4>
 									<a class="btn btn-success col-xs-12 ml-auto mr-sm-5"
-										href="redirectAddCauHoi"> <i class="fa fa-plus"></i> Thêm
-										câu hỏi
+										href="redirectGanDeThi"> <i class="fa fa-calendar-plus-o "></i>  Gán đề thi
+									</a>
+									 <a class="btn btn-success col-xs-12 ml-auto mr-sm-5"
+										href="redirectAddDeThi"> <i class="fa fa-plus"></i> Thêm đề thi
 									</a>
 								</div>
 							</div>
@@ -146,8 +145,8 @@
 												<td><%=ds.get(i).getThangDiem()%></td>
 												<td><%=ds.get(i).getThoiGianBatDau()%></td>
 												<td><%=ds.get(i).isIsActive()%></td>
-												<td>
-                                                    <a href="redirectSuaDeThi?maDeThi=<%=ds.get(i).getMaDeThi()%>&
+												<td><a
+													href="redirectSuaDeThi?maDeThi=<%=ds.get(i).getMaDeThi()%>&
 											hocKy=<%=ds.get(i).getHocKy()%>&
 											thoiLuong=<%=ds.get(i).getThoiLuong()%>&
 											soCHDe=<%=ds.get(i).getSoCHDe()%>&
@@ -156,10 +155,10 @@
 											thangDiem=<%=ds.get(i).getThangDiem()%>&
 											thoiGianBatDau=<%=ds.get(i).getThoiGianBatDau()%>&
 											isActive=<%=ds.get(i).isIsActive()%>
-											" class="btn btn-info"><i class="fa fa-pencil"></i></a>
-                                                    <a href="XoaCauHoi" class="btn btn-warning"><i class="fa fa-trash"></i></a>
-                                                    
-                                                </td>
+											"
+													class="btn btn-info"><i class="fa fa-pencil"></i></a> <a
+													href="xoaDeThi?maDT=<%=ds.get(i).getMaDeThi()%>"
+													class="btn btn-warning"><i class="fa fa-trash"></i></a></td>
 											</tr>
 											<%
 												}
@@ -186,23 +185,6 @@
 			</div>
 		</div>
 	</div>
-	<footer class="footer">
-		<div class="container-fluid">
-			<nav class="float-left">
-				<ul>
-					<li></li>
-					<li></li>
-					<li><a href="#"> Group 1 </a></li>
-					<li><a href="#"> Licenses </a></li>
-					<li><a href="#"> About </a></li>
-					<li><a href="#"> Contact </a></li>
-				</ul>
-			</nav>
-			
-		</div>
-	</footer>
-
-
 </body>
 
 </html>

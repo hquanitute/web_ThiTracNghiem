@@ -38,12 +38,19 @@ public class redirectLogin extends HttpServlet {
 			dispatcher = request.getRequestDispatcher("Login_test.jsp");
 		}
 		else {
-			String role= (String)ss.getAttribute("role");
-			if(role.equals("sinhvien")) {
-				
-				dispatcher = request.getRequestDispatcher("redirectTrangThi");
+			String role = (String)ss.getAttribute("role");
+			if(role.equals("thisinh")) {
+				dispatcher=request.getRequestDispatcher("redirectTrangThi");
 			}
-			dispatcher = request.getRequestDispatcher("redirectCpanel");
+			if(role.equals("qlcauhoi")) {
+				dispatcher=request.getRequestDispatcher("redirectCpanel");
+			}
+			if(role.equals("qldethi")) {
+				dispatcher=request.getRequestDispatcher("redirectCpanel");
+			}
+			if(role.equals("qlthisinh")) {
+				dispatcher=request.getRequestDispatcher("redirectCpanel");
+			}
 		}
 		dispatcher.forward(request, response);
 	}

@@ -3,18 +3,19 @@ package Objects;
 public class PhongThi {
 	private int MaPhong;
 	private int MaLopHoc;
+	private int MaDeThi;
 	public int getMaLopHoc() {
 		return MaLopHoc;
 	}
 	public void setMaLopHoc(int maLopHoc) {
 		MaLopHoc = maLopHoc;
 	}
-	private int MaDeThi;
+
 	public int getMaPhong() {
 		return MaPhong;
 	}
 	public void setMaPhong(int maPhongThi) {
-		MaDeThi = maPhongThi;
+		MaPhong = maPhongThi;
 	}
 	
 	public int getMaDeThi() {

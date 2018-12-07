@@ -7,6 +7,8 @@
 <title>Đăng Nhập</title>
 <link href="${pageContext.request.contextPath}/Source/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="${pageContext.request.contextPath}/Source/bootstrap.min.js"></script>
+<script src="./assets/"></script>
+<script src="${pageContext.request.contextPath}Source/jquery-3.3.1.min.js"></script>
 <style>
 
 

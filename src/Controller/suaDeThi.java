@@ -59,6 +59,8 @@ public class suaDeThi extends HttpServlet {
 				Float thangDiem= Float.parseFloat(request.getParameter("e_thangDiem"));
 				boolean isActive= Boolean.parseBoolean(request.getParameter("e_isActive"));
 				dt.suaDeThi(maDT, hocKy, batdau, thoiLuong, chDe, chTb, chKho, thangDiem, isActive);
+				dt.xoaChiTietDeThi(maDT);
+				dt.TaoChiTietDeThiVoiParam(maDT,chDe, chTb, chKho);
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
