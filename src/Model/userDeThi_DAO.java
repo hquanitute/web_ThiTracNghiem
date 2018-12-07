@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import Objects.BaiLam;
 import Objects.DeThiTheoUser;
 
 public class userDeThi_DAO {
@@ -48,5 +49,36 @@ public class userDeThi_DAO {
 		}
 		return ds;
 		
+	}
+	
+	//xoa
+	public int layMaCauHoiTheoThuTu(int maDe, int stt) throws SQLException {
+		String sql="select MaDeThi from chitietdethi where MaDeThi ="+maDe+" limit "+stt+",1";
+		Statement stm = conn.createStatement();
+		ResultSet rs= stm.executeQuery(sql);
+		int ma=0;
+		while (rs.next()) {
+			ma=rs.getInt(1);
+		}
+		return ma;
+	}
+	
+	// lay dap an dung
+	public List<BaiLam> layDapAnTheoDe(int maDe) throws SQLException{
+		List<BaiLam> ds = new ArrayList<>();
+		String sql="select * from (dethi inner join chitietdethi on dethi.madethi=chitietdethi.madethi)\r\n" + 
+				"inner join cauhoi on cauhoi.macauhoi=chitietdethi.macauhoi\r\n" + 
+				"where dethi.madethi="+maDe+"\r\n" + 
+				"order by chitietdethi.machitiet";
+		Statement stm = conn.createStatement();
+		ResultSet rs = stm.executeQuery(sql);
+		int i=1;
+		while(rs.next()) {
+			BaiLam bl = new BaiLam();
+			bl.setMaCH(String.valueOf(i));
+			bl.setDapAnChon(rs.getString("DapAnDung"));
+			ds.add(bl);
+		}
+		return ds;
 	}
 }

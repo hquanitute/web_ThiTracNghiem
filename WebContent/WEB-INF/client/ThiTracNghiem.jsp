@@ -17,33 +17,34 @@
 <script src="main.js"></script>
 <style type="text/css">
 .numberCircle {
-  border-radius: 50%;
-  behavior: url(PIE.htc);
-  /* remove if you don't care about IE8 */
-  width: 45px;
-  height: 45px;
-  padding: 3px;
-  background: #2C72C7;
-  border: 2px solid #2C72C7;
-  color: #FF6600;
-  text-align: center;
-  font: 24px Arial, sans-serif;
+	border-radius: 50%;
+	behavior: url(PIE.htc);
+	/* remove if you don't care about IE8 */
+	width: 45px;
+	height: 45px;
+	padding: 3px;
+	background: #2C72C7;
+	border: 2px solid #2C72C7;
+	color: #FF6600;
+	text-align: center;
+	font: 24px Arial, sans-serif;
 }
 </style>
 </head>
 
 <body>
+
+
 	<div>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
 			<a class="navbar-brand" href="#">Thi trắc nghiệm online</a>
 			<div class="">
 				<ul class="navbar-nav">
 					<li class="nav-item active"><a class="nav-link"
-						href="redirectTrangChu">Trang chủ <span class="sr-only">(current)</span></a>
+						href="redirectTrangThi">Trang chủ <span class="sr-only">(current)</span></a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="redirectVaoThi">Vào
-							thi</a></li>
-					<li class="nav-item"><a class="nav-link" href="redirectKetQua">Kết
+
+					<li class="nav-item"><a class="nav-link" href="xemKetQua">Kết
 							quả</a></li>
 				</ul>
 			</div>
@@ -55,6 +56,18 @@
 		<div class="content mx-5">
 			<div class="row mt-5">
 				<div class="col-sm-8">
+					<%
+						if (request.getAttribute("mess") != null) {
+							String mess = (String) request.getAttribute("mess");
+					%>
+				
+					<div class="alert alert-success alert-dismissible">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+						<strong><%=mess%></strong>
+					</div>
+					<%
+						}
+					%>
 					<ul class="list-group">
 						<li class="list-group-item"><h3>Danh sách các bài thi</h3></li>
 						<%
@@ -66,26 +79,41 @@
 							for (int i = 0; i < ds.size(); i++) {
 						%>
 						<li class="list-group-item ">
-						<div class="d-flex justify-content-between">
-						<div class="d-inline"><h3 class="ml-4 "><%=ds.get(i).getTenLopHoc().toUpperCase()%></h3></div>
-						<div class="">
-						<a href="vaoThi?maDeThi=<%=ds.get(i).getMaDeThi()%>&
+							<div class="d-flex justify-content-between">
+								<div class="d-inline">
+									<h3 class="ml-4 "><%=ds.get(i).getTenLopHoc().toUpperCase()%></h3>
+								</div>
+								<div class="">
+									<a
+										href="vaoThi?maDeThi=<%=ds.get(i).getMaDeThi()%>&
 						thoiLuong=<%=ds.get(i).getThoiLuong()%>&
-						tongSoCau=<%=ds.get(i).getTongSoCauHoi()%>" class="btn btn-info">Bắt đầu</a></div> 
-						<div class="numberCircle mr-3"><%=ds.get(i).getThoiLuong()%></div>
-						</div>
-						<hr>
-						<div class="row">
-							<div class="col-lg-4">Bài quiz số: <%=ds.get(i).getMaDeThi()%> </div>
-							<div class="col-lg-8">Thời gian bắt đầu: <%=ds.get(i).getThoiGianBatDau()%></div>
-						</div>
-						<div class="row">
-							<div class="col-lg-4">Số câu hỏi: <%=ds.get(i).getTongSoCauHoi()%> </div>
-							<div class="col-lg-8">Thời gian làm bài: <%=ds.get(i).getThoiLuong()%></div>
-						</div>
-						
-						
-						 </li>
+						tongSoCau=<%=ds.get(i).getTongSoCauHoi()%>"
+										class="btn btn-info">Bắt đầu</a>
+								</div>
+								<div class="numberCircle mr-3"><%=ds.get(i).getThoiLuong()%></div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-lg-4">
+									Bài quiz số:
+									<%=ds.get(i).getMaDeThi()%>
+								</div>
+								<div class="col-lg-8">
+									Thời gian bắt đầu:
+									<%=ds.get(i).getThoiGianBatDau()%></div>
+							</div>
+							<div class="row">
+								<div class="col-lg-4">
+									Số câu hỏi:
+									<%=ds.get(i).getTongSoCauHoi()%>
+								</div>
+								<div class="col-lg-8">
+									Thời gian làm bài:
+									<%=ds.get(i).getThoiLuong()%></div>
+							</div>
+
+
+						</li>
 						<%
 							}
 						%>
@@ -94,10 +122,12 @@
 				<div class="col-sm-4">
 					<div class="card text-center">
 						<img style="width: 18rem;" class="card-img-top mx-auto my-2"
-							src="${pageContext.request.contextPath}/Source/hinh1.png" alt="Card image cap">
+							src="${pageContext.request.contextPath}/Source/hinh1.png"
+							alt="Card image cap">
 						<div class="card-body">
-							<p class="card-text">Some quick example text to build on the
-								card title and make up the bulk of the card's content.</p>
+							<p class="card-text">
+								MSSV:
+								<%=session.getAttribute("mataikhoan")%></p>
 						</div>
 					</div>
 

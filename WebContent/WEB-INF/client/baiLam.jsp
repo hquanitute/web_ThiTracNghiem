@@ -43,11 +43,10 @@
 			<div class="">
 				<ul class="navbar-nav">
 					<li class="nav-item active"><a class="nav-link"
-						href="redirectTrangChu">Trang chủ <span class="sr-only">(current)</span></a>
+						href="redirectTrangThi">Trang chủ <span class="sr-only">(current)</span></a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="redirectVaoThi">Vào
-							thi</a></li>
-					<li class="nav-item"><a class="nav-link" href="redirectKetQua">Kết
+				
+					<li class="nav-item"><a class="nav-link" href="xemKetQua">Kết
 							quả</a></li>
 				</ul>
 			</div>
@@ -64,7 +63,8 @@
 							<h3 class="text-center">Bài làm</h3>
 						</div>
 						<div class="card-body px-5 py-5">
-							<%
+							<form action="nopBai" id="myform">
+								<%
 								dsCauHoi obj = (dsCauHoi) request.getAttribute("dsCH");
 								List<CauHoi> ds = (List<CauHoi>) obj.getDs();
 								for (int i = 0; i < ds.size(); i++) {
@@ -75,13 +75,13 @@
 									<%=i + 1%>:
 									<%=ds.get(i).getNoiDungCauHoi()%>
 								</h5>
-								<label class="container"> <input type="radio"
+								<label class="container"> <input type="radio" value="A"
 									name="<%=i%>"> <span class="checkmark"><%=ds.get(i).isDapAn_A()%></span>
-								</label> <label class="container"> <input type="radio"
+								</label> <label class="container"> <input type="radio" value="B"
 									name="<%=i%>"> <span class="checkmark"><%=ds.get(i).isDapAn_B()%></span>
-								</label> <label class="container"> <input type="radio"
+								</label> <label class="container"> <input type="radio" value="C"
 									name="<%=i%>"> <span class="checkmark"><%=ds.get(i).isDapAn_C()%></span>
-								</label> <label class="container"> <input type="radio"
+								</label> <label class="container"> <input type="radio" value="D"
 									name="<%=i%>"> <span class="checkmark"><%=ds.get(i).isDapAn_D()%></span>
 								</label>
 
@@ -89,6 +89,8 @@
 							<%
 								}
 							%>
+							<button id="nopbai" type="submit" class="btn btn-success ">Nộp bài</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -109,7 +111,7 @@
 							<!--Model  -->
 							<div class="row ml-5" style="border-radius: 20px;">
 								<div
-									style="color: #333; text-align: center; background-color: #ffd54f; position: fixed; border-radius: 20px;"
+									style="color: #333; text-align: center; background-color: #ffd54f; border-radius: 20px;"
 									class="float-right">
 									<ul style="margin-top: 20px;">
 										<li
@@ -132,12 +134,13 @@
 					</div>
 
 					<div class="card text-center sidebar">
-						<div class="card-body px-5 py-5">
+						<div class="card-body px-3 py-3">
 							<%
 								for (int i = 0; i < ds.size(); i++) {
 							%>
-							<a style="width: 40px;" class="btn btn-primary mx-2 my-2"
-								href="#<%=i + 1%>"><%=i + 1%></a>
+							<%-- <a style="width: 40px;" class="btn btn-primary mx-2 my-2"
+								href="#<%=i + 1%>"><%=i + 1%></a> --%>
+								<button type="button" class='goto btn btn-light ' value="<%=i%>"><%=i + 1%></button>
 							<%
 								}
 							%>
@@ -162,9 +165,7 @@
 				</div>
 				<div class="modal-body">Đã hết thời gian làm bài!</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-danger">Về trang chủ</button>
-					<button type="button" class="btn btn-primary">Xem kết quả
-						thi</button>
+					<input type="submit" form="myform" value="Nộp bài"/>
 				</div>
 			</div>
 		</div>
@@ -172,7 +173,7 @@
 	<script>
 		var _hours = 0;
 		var _minute = 0;
-		var _seconds = 5;
+		var _seconds = 10;
 		var html = '<div class="alert alert-success"><strong>Success!</strong> Hết thời gian</div>';
 		function demNguoc() {
 
@@ -188,14 +189,21 @@
 				$("#hours").text(_hours);
 
 			} else {
-
-				$('#popupa').modal('show');
+				$("#nopbai").click();
+				//$('#popupa').modal('show');
 
 			}
 		}
+		function getFocus(id) {           
+			$('html, body').animate({ scrollTop: $('#'+id+'').offset().top }, 'slow');
+			}
 		$(document).ready(function() {
 			setInterval(demNguoc, 1000);
+			$(".goto").click(function(){
+				getFocus($(this).val());
+			})
 		});
+		
 	</script>
 </body>
 
