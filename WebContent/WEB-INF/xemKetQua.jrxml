@@ -58,13 +58,15 @@
 			<![CDATA[]]>
 		</queryString>
 	</subDataset>
-	<parameter name="Parameter1" class="java.lang.String"/>
-	<parameter name="Parameter2" class="java.lang.String"/>
-	<parameter name="Parameter3" class="java.lang.String"/>
+	<parameter name="Parameter1" class="java.lang.Integer"/>
+	<parameter name="Parameter2" class="java.lang.Integer"/>
+	<parameter name="Parameter3" class="java.lang.Integer"/>
 	<queryString language="SQL">
-		<![CDATA[select taikhoan.MaTK, dethi.MaDeThi, cauhoi.MaCauHoi, cauhoi.NoiDungCauHoi, cauhoi.DapAn_A, cauhoi.DapAn_B, cauhoi.DapAn_C, cauhoi.DapAn_D, cauhoi.DapAnDung, ketquakiemtra.Diem
-from cauhoi, chitietdethi,dethi,ketquakiemtra, taikhoan
-where cauhoi.MaCauHoi=chitietdethi.MaCauHoi]]>
+		<![CDATA[select taikhoan.MaTK, dethi.MaDeThi, cauhoi.MaCauHoi, cauhoi.NoiDungCauHoi, cauhoi.DapAn_A, cauhoi.DapAn_B, cauhoi.DapAn_C, cauhoi.DapAn_D, cauhoi.DapAnDung, ketquakiemtra.Diem, chitietbailam.DapAnChon
+from cauhoi, chitietdethi,dethi,ketquakiemtra, taikhoan,chitietbailam
+where cauhoi.MaCauHoi=chitietdethi.MaCauHoi and chitietdethi.MaDeThi= dethi.MaDeThi and ketquakiemtra.MaDeThi= dethi.MaDeThi and ketquakiemtra.MaTK=taikhoan.MaTK and taikhoan.MaTK= chitietbailam.MaTK and taikhoan.MaTK= $P{Parameter1} and dethi.MaDeThi= $P{Parameter2} and chitietbailam.MaKQKT= $P{Parameter3}
+group by cauhoi.MaCauHoi
+order by chitietdethi.MaChiTiet]]>
 	</queryString>
 	<field name="NoiDungCauHoi" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="NoiDungCauHoi"/>
@@ -94,11 +96,15 @@ where cauhoi.MaCauHoi=chitietdethi.MaCauHoi]]>
 		<property name="com.jaspersoft.studio.field.label" value="Diem"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="ketquakiemtra"/>
 	</field>
+	<field name="DapAnChon" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.tree.path" value="chitietbailam"/>
+		<property name="com.jaspersoft.studio.field.label" value="DapAnChon"/>
+	</field>
 	<group name="Gruppo1">
 		<groupExpression><![CDATA[$F{NoiDungCauHoi}]]></groupExpression>
 		<groupHeader>
-			<band height="20"/>
-			<band height="50"/>
+			<band height="10"/>
+			<band height="11"/>
 		</groupHeader>
 		<groupFooter>
 			<band>
@@ -126,7 +132,7 @@ where cauhoi.MaCauHoi=chitietdethi.MaCauHoi]]>
 		<groupExpression><![CDATA[$F{Diem}]]></groupExpression>
 	</group>
 	<title>
-		<band height="125" splitType="Stretch">
+		<band height="121" splitType="Stretch">
 			<line>
 				<reportElement x="0" y="80" width="556" height="1" uuid="806ce5df-1219-4876-ae0c-ca7405b1f246">
 					<property name="local_mesure_unitheight" value="pixel"/>
@@ -136,62 +142,148 @@ where cauhoi.MaCauHoi=chitietdethi.MaCauHoi]]>
 			<staticText>
 				<reportElement x="415" y="10" width="50" height="20" uuid="0f86baff-6386-4f3f-b3fe-2388707babe8"/>
 				<box rightPadding="4"/>
-				<textElement textAlignment="Right"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
 				<text><![CDATA[Date:]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
 				<reportElement x="465" y="10" width="84" height="20" uuid="bb10dbe1-0a4f-4722-9953-c163b63cf979"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="100" y="0" width="210" height="25" uuid="e622555d-198b-4ccd-a4a1-c59c53304058">
+				<reportElement x="100" y="0" width="240" height="25" uuid="e622555d-198b-4ccd-a4a1-c59c53304058">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
-					<font size="19" isBold="true"/>
+					<font fontName="DejaVu Sans" size="19" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Kết quả bài kiểm tra]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="92" y="95" width="100" height="30" uuid="02b83e8b-2543-4d9a-84ed-64303702bbea"/>
+				<reportElement x="92" y="90" width="100" height="30" uuid="02b83e8b-2543-4d9a-84ed-64303702bbea"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{Diem}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="20" y="90" width="51" height="31" uuid="68248384-26cd-4c78-86ee-873b8cd7ec22"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Điểm:]]></text>
+			</staticText>
 		</band>
 	</title>
 	<detail>
-		<band height="140">
+		<band height="155">
 			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" x="70" y="21" width="100" height="30" uuid="9ee49dfa-b797-479c-8534-cfd30095236f">
+				<reportElement positionType="FixRelativeToBottom" x="21" y="10" width="510" height="30" uuid="9ee49dfa-b797-479c-8534-cfd30095236f">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e04d824e-c157-40ef-91a0-474fd665c7f3"/>
 				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{NoiDungCauHoi}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="70" y="0" width="85" height="30" uuid="f14c94c1-d0d8-48e3-b337-9a74327bcd95">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="90787924-c6de-4df8-b563-4f8b419b7939"/>
-				</reportElement>
-				<textFieldExpression><![CDATA[$F{DapAn_A}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement positionType="Float" x="130" y="110" width="100" height="30" uuid="93729a45-a2c0-44aa-bf90-fbf379e0bf1e">
+				<reportElement positionType="Float" x="311" y="42" width="204" height="30" uuid="93729a45-a2c0-44aa-bf90-fbf379e0bf1e">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cc5932fb-c4f4-4c43-959c-736b2c99b22a"/>
 				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{DapAn_B}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="400" y="86" width="100" height="30" uuid="6ce2cd2a-c532-4b77-9ec3-d4ab8418bca2">
+				<reportElement x="51" y="78" width="207" height="30" uuid="6ce2cd2a-c532-4b77-9ec3-d4ab8418bca2">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="74ebf3a3-e490-4167-8c43-47307d7bd33b"/>
 				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{DapAn_C}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="370" y="58" width="100" height="30" uuid="90b7d92e-7a55-438f-a2c6-cef4ca2ed16c">
+				<reportElement x="311" y="78" width="204" height="30" uuid="90b7d92e-7a55-438f-a2c6-cef4ca2ed16c">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="73184b7e-250b-472c-814e-94cd2f5efbc8"/>
 				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{DapAn_D}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="51" y="42" width="207" height="30" uuid="f14c94c1-d0d8-48e3-b337-9a74327bcd95">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="90787924-c6de-4df8-b563-4f8b419b7939"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DapAn_A}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="133" width="100" height="22" uuid="6ecc8684-1263-4eec-be71-db783546b9c0"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DapAnDung}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="109" width="100" height="22" uuid="3dde0c6d-2763-47ed-8ab5-c82583b48b79"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DapAnChon}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="21" y="110" width="100" height="21" uuid="6b310b40-53b2-42b4-b107-90af150f3388"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Đáp án bạn chọn]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="134" width="100" height="21" uuid="b8f847be-a49f-44d6-aeda-84fb78722c16"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Đáp án đúng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="41" width="21" height="31" uuid="cbd3bd68-7f61-4265-acc1-074a67de844f"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[A)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="40" width="21" height="31" uuid="eb8922a0-91e1-4ea0-b531-b9ac4a543f42"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[B)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="26" y="79" width="21" height="31" uuid="983e9f9b-a8d7-42b7-8fe9-0cbdb28038fc"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[C)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="78" width="21" height="30" uuid="1d925a70-978e-40c2-88ec-c9fed3aefbd0"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[D)]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<lastPageFooter>
@@ -199,7 +291,7 @@ where cauhoi.MaCauHoi=chitietdethi.MaCauHoi]]>
 			<staticText>
 				<reportElement positionType="Float" mode="Opaque" x="0" y="147" width="556" height="30" backcolor="#E6E8E9" uuid="36aa233d-4305-48e6-974a-1bbf89bb3c8f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Serif" size="9" isItalic="true"/>
+					<font fontName="DejaVu Sans" size="9" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[THANKYOU FOR YOUR BUSINESS]]></text>
 			</staticText>

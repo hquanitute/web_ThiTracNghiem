@@ -76,7 +76,7 @@
 								<td style="text-align: center;"><%=ds.get(i).getMaDeThi()%></td>
 								<td style="text-align: center;"><%=ds.get(i).getDiem()%></td>
 
-								<td><a href="xuatPDF">Xuất file PDF</a></td>
+								<td><a target="_blank" href="xuatPDF?maKQ=<%=ds.get(i).getMaKQ()%>&maDT=<%=ds.get(i).getMaDeThi()%>">Xuất file PDF</a></td>
 							</tr>
 							<%
 								}

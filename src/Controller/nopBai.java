@@ -59,6 +59,12 @@ public class nopBai extends HttpServlet {
 		List<BaiLam> lst = new ArrayList<>(); 
 		float diem=0;
 		int soCauDung=0;
+		userKetQuaThi kq1 =null;
+		try {
+			kq1= new userKetQuaThi(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		for(int i=0;i<soCau;i++) {
 			String s =request.getParameter(String.valueOf(i));
 			BaiLam bl = new BaiLam();
@@ -69,7 +75,12 @@ public class nopBai extends HttpServlet {
 			else {
 				bl.setDapAnChon(s);
 			}
-			
+			try {
+				int temp=kq1.layMaCauHoiTheoThuTu(maDeThi, i);
+				kq1.themChiTietBaiLam(maDeThi, temp, maTK, bl.getDapAnChon());
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			
 			lst.add(bl);
 		}
@@ -96,14 +107,10 @@ public class nopBai extends HttpServlet {
 			}
 		}
 		diem=soCauDung*10/soCau;
-		userKetQuaThi kq1 =null;
-		try {
-			kq1= new userKetQuaThi(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
 		try {
 			kq1.themKetQuaThi(maDeThi, maTK,diem);
+			kq1.capNhatMaKetQuaKiemTra();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

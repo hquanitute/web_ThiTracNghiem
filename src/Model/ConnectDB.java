@@ -17,6 +17,12 @@ public class ConnectDB
 		this.conn = conn;
 	}
 	private Connection conn;
+	public Connection getConn() {
+		return conn;
+	}
+	public void setConn(Connection conn) {
+		this.conn = conn;
+	}
 	public Connection Connect(String username,String pass) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 		String dbName="web";
 		Class.forName("com.mysql.cj.jdbc.Driver");
