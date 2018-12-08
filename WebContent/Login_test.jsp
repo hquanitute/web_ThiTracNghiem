@@ -80,9 +80,7 @@ form[role=login] {
           
           
           <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Đăng Nhập</button>
-          <div>
-            <a href="Register.jsp">Đăng kí tài khoản mới</a>
-          </div>
+          
           </form>
       </section>  
       </div>     

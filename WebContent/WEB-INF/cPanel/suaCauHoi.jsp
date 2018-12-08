@@ -45,15 +45,15 @@
 				<ul class="nav">
 					<li class="nav-item  "><a class="nav-link"
 						href="redirectCpanel"> Trang Chủ </a></li>
-					<li class="nav-item active"><a class="nav-link"
+					<li class="nav-item active" <%if(!session.getAttribute("role").equals("qlcauhoi")){%>hidden<%}%>><a class="nav-link"
 						href="redirectCauHoi"> Câu Hỏi </a></li>
-					<li class="nav-item "><a class="nav-link" href="redirectDeThi">
+					<li class="nav-item" <%if(!session.getAttribute("role").equals("qldethi")){%>hidden<%}%>><a class="nav-link" href="redirectDeThi">
 							Đề Thi </a></li>
 
-				<li class="nav-item "><a class="nav-link" href="redirectThiSinhLopHoc">
+				<li class="nav-item" <%if(!session.getAttribute("role").equals("qlthisinh")){%>hidden<%}%>><a class="nav-link hidden" href="redirectThiSinhLopHoc">
 							Thí Sinh
 					</a></li>
-						<li class="nav-item "><a class="nav-link" href="redirectLopHoc">
+						<li class="nav-item " <%if(!session.getAttribute("role").equals("qlthisinh")){%>hidden<%}%>><a class="nav-link" href="redirectLopHoc">
 							Lớp Học
 					</a></li>
 				</ul>

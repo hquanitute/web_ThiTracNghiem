@@ -38,15 +38,18 @@
 			<div class="sidebar-wrapper">
 				<ul class="nav">
 					<li class="nav-item  "><a class="nav-link"
-						href="redirectCpanel">Trang Chủ</a></li>
-					<li class="nav-item "><a class="nav-link"
-						href="redirectCauHoi">Câu Hỏi</a></li>
-					<li class="nav-item"><a class="nav-link" href="redirectDeThi">
-							Đề Thi</a></li>
-					<li class="nav-item "><a class="nav-link"
-						href="redirectThiSinhLopHoc">Thí Sinh</a></li>
-						<li class="nav-item active"><a class="nav-link"
-						href="redirectThiSinhLopHoc">Lớp Học</a></li>
+						href="redirectCpanel"> Trang Chủ </a></li>
+					<li class="nav-item " <%if(!session.getAttribute("role").equals("qlcauhoi")){%>hidden<%}%>><a class="nav-link"
+						href="redirectCauHoi"> Câu Hỏi </a></li>
+					<li class="nav-item" <%if(!session.getAttribute("role").equals("qldethi")){%>hidden<%}%>><a class="nav-link" href="redirectDeThi">
+							Đề Thi </a></li>
+
+				<li class="nav-item" <%if(!session.getAttribute("role").equals("qlthisinh")){%>hidden<%}%>><a class="nav-link hidden" href="redirectThiSinhLopHoc">
+							Thí Sinh
+					</a></li>
+						<li class="nav-item active" <%if(!session.getAttribute("role").equals("qlthisinh")){%>hidden<%}%>><a class="nav-link" href="redirectLopHoc">
+							Lớp Học
+					</a></li>
 				</ul>
 			</div>
 		</div>
