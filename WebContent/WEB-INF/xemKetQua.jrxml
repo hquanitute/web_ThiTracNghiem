@@ -64,9 +64,7 @@
 	<queryString language="SQL">
 		<![CDATA[select taikhoan.MaTK, dethi.MaDeThi, cauhoi.MaCauHoi, cauhoi.NoiDungCauHoi, cauhoi.DapAn_A, cauhoi.DapAn_B, cauhoi.DapAn_C, cauhoi.DapAn_D, cauhoi.DapAnDung, ketquakiemtra.Diem, chitietbailam.DapAnChon
 from cauhoi, chitietdethi,dethi,ketquakiemtra, taikhoan,chitietbailam
-where cauhoi.MaCauHoi=chitietdethi.MaCauHoi and chitietdethi.MaDeThi= dethi.MaDeThi and ketquakiemtra.MaDeThi= dethi.MaDeThi and ketquakiemtra.MaTK=taikhoan.MaTK and taikhoan.MaTK= chitietbailam.MaTK and taikhoan.MaTK= $P{Parameter1} and dethi.MaDeThi= $P{Parameter2} and chitietbailam.MaKQKT= $P{Parameter3}
-group by cauhoi.MaCauHoi
-order by chitietdethi.MaChiTiet]]>
+where cauhoi.MaCauHoi=chitietdethi.MaCauHoi and chitietdethi.MaDeThi= dethi.MaDeThi and ketquakiemtra.MaDeThi= dethi.MaDeThi and ketquakiemtra.MaTK=taikhoan.MaTK and taikhoan.MaTK= chitietbailam.MaTK and chitietbailam.MaCauHoi=cauhoi.MaCauHoi and chitietbailam.MaKQKT= ketquakiemtra.MaKetQua and taikhoan.MaTK= $P{Parameter1} and dethi.MaDeThi= $P{Parameter2} and chitietbailam.MaKQKT= $P{Parameter3}]]>
 	</queryString>
 	<field name="NoiDungCauHoi" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="NoiDungCauHoi"/>
