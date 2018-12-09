@@ -37,6 +37,42 @@
 </head>
 
 <body>
+	<script>
+		var _hours = 0;
+		var _minute = 0;
+		var _seconds = 10;
+		var html = '<div class="alert alert-success"><strong>Success!</strong> Hết thời gian</div>';
+		function demNguoc() {
+
+			if (_seconds != 0 || _hours != 0 || _minute != 0) {
+				if (_seconds == 0 && _minute != 0) {
+					_seconds = 59;
+					_minute--;
+				} else {
+					_seconds--;
+				}
+				$("#seconds").text(_seconds);
+				$("#minutes").text(_minute);
+				$("#hours").text(_hours);
+
+			} else {
+				$("#nopbai").click();
+				//$('#popupa').modal('show');
+
+			}
+		}
+		function getFocus(id) {           
+			$('html, body').animate({ scrollTop: $('#'+id+'').offset().top }, 'slow');
+			}
+		setInterval(demNguoc, 1000);
+		$(".goto").click(function(){
+			getFocus($(this).val());
+		})
+		$(document).ready(function() {
+			
+		});
+		
+	</script>
 	<div>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
 			<a class="navbar-brand" href="#">Thi trắc nghiệm online</a>
@@ -170,41 +206,7 @@
 			</div>
 		</div>
 	</div>
-	<script>
-		var _hours = 0;
-		var _minute = 0;
-		var _seconds = 10;
-		var html = '<div class="alert alert-success"><strong>Success!</strong> Hết thời gian</div>';
-		function demNguoc() {
 
-			if (_seconds != 0 || _hours != 0 || _minute != 0) {
-				if (_seconds == 0 && _minute != 0) {
-					_seconds = 59;
-					_minute--;
-				} else {
-					_seconds--;
-				}
-				$("#seconds").text(_seconds);
-				$("#minutes").text(_minute);
-				$("#hours").text(_hours);
-
-			} else {
-				$("#nopbai").click();
-				//$('#popupa').modal('show');
-
-			}
-		}
-		function getFocus(id) {           
-			$('html, body').animate({ scrollTop: $('#'+id+'').offset().top }, 'slow');
-			}
-		$(document).ready(function() {
-			setInterval(demNguoc, 1000);
-			$(".goto").click(function(){
-				getFocus($(this).val());
-			})
-		});
-		
-	</script>
 </body>
 
 </html>
