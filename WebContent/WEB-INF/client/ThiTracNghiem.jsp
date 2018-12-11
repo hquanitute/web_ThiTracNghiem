@@ -15,21 +15,7 @@
 	href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css"
 	rel="stylesheet">
 <script src="main.js"></script>
-<style type="text/css">
-.numberCircle {
-	border-radius: 50%;
-	behavior: url(PIE.htc);
-	/* remove if you don't care about IE8 */
-	width: 45px;
-	height: 45px;
-	padding: 3px;
-	background: #2C72C7;
-	border: 2px solid #2C72C7;
-	color: #FF6600;
-	text-align: center;
-	font: 24px Arial, sans-serif;
-}
-</style>
+
 </head>
 
 <body>
@@ -90,7 +76,7 @@
 						tongSoCau=<%=ds.get(i).getTongSoCauHoi()%>"
 										class="btn btn-info">Bắt đầu</a>
 								</div>
-								<div class="numberCircle mr-3"><%=ds.get(i).getThoiLuong()%></div>
+								
 							</div>
 							<hr>
 							<div class="row">

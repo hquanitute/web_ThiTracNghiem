@@ -38,7 +38,13 @@ public class redirectSuaDeThi extends HttpServlet {
 	        rd.include(request,response); 
 		}
 		else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/suaDeThi.jsp");
+			RequestDispatcher dispatcher=null;
+			if(ss.getAttribute("role").equals("qldethi")) {
+				dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/suaDeThi.jsp");
+			}
+			else {
+				 dispatcher = request.getRequestDispatcher("WEB-INF/permission.jsp");
+			}
 			dispatcher.forward(request, response);
 		}
 	}

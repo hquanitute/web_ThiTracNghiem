@@ -40,21 +40,28 @@ public class redirectTaiKhoanLopHoc extends HttpServlet {
 	        rd.forward(request,response); 
 		}
 		else {
-			TAIKHOANLOPHOC_DAO lh = null;
-			try {
-				lh = new TAIKHOANLOPHOC_DAO(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
-			} catch (Exception e1) {
-				e1.printStackTrace();
+			RequestDispatcher dispatcher=null;
+			if(ss.getAttribute("role").equals("qlthisinh")) {
+				TAIKHOANLOPHOC_DAO lh = null;
+				try {
+					lh = new TAIKHOANLOPHOC_DAO(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				dsTaiKhoanLopHoc ds= new dsTaiKhoanLopHoc();
+				try {
+					ds.setDs(lh.xemDSTaiKhoanLopHoc(ma));
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				request.setAttribute("dsLH",ds );
+				dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/SVLopHoc.jsp");
 			}
-			dsTaiKhoanLopHoc ds= new dsTaiKhoanLopHoc();
-			try {
-				ds.setDs(lh.xemDSTaiKhoanLopHoc(ma));
-			} catch (SQLException e) {
-				e.printStackTrace();
+			else {
+				 dispatcher = request.getRequestDispatcher("WEB-INF/permission.jsp");
 			}
-			request.setAttribute("dsLH",ds );
-			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/SVLopHoc.jsp");
 			dispatcher.forward(request, response);
+			
 		}
 	}
 

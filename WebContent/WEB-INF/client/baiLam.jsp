@@ -39,8 +39,8 @@
 <body>
 	<script>
 		var _hours = 0;
-		var _minute = 0;
-		var _seconds = 10;
+		var _minute = <%=session.getAttribute("thoiLuong")%>;
+		var _seconds = 0;
 		var html = '<div class="alert alert-success"><strong>Success!</strong> Hết thời gian</div>';
 		function demNguoc() {
 
@@ -65,12 +65,7 @@
 			$('html, body').animate({ scrollTop: $('#'+id+'').offset().top }, 'slow');
 			}
 		setInterval(demNguoc, 1000);
-		$(".goto").click(function(){
-			getFocus($(this).val());
-		})
-		$(document).ready(function() {
-			
-		});
+		window.onbeforeunload = function () {return false;}
 		
 	</script>
 	<div>
@@ -131,8 +126,8 @@
 					</div>
 				</div>
 
-				<div class="col-sm-4">
-					<div class="card text-center mb-3 thongtin">
+				<div class="col-sm-4 thongtin">
+					<div class="card text-center mb-3 ">
 
 						<div class="card-body">
 							<div>
@@ -169,7 +164,7 @@
 						</div>
 					</div>
 
-					<div class="card text-center sidebar">
+					<div class="card text-center">
 						<div class="card-body px-3 py-3">
 							<%
 								for (int i = 0; i < ds.size(); i++) {
@@ -208,5 +203,11 @@
 	</div>
 
 </body>
-
+<script>
+$(document).ready(function() {
+	$(".goto").click(function(){
+		getFocus($(this).val());
+	})
+});
+</script>
 </html>

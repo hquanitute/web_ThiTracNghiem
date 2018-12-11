@@ -106,7 +106,7 @@ public class nopBai extends HttpServlet {
 				soCauDung=soCauDung+1;
 			}
 		}
-		diem=soCauDung*10/soCau;
+		diem=(float)soCauDung*10/soCau;
 		
 		try {
 			kq1.themKetQuaThi(maDeThi, maTK,diem);

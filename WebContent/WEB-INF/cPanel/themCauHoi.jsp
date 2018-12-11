@@ -40,17 +40,22 @@
 				<ul class="nav">
 					<li class="nav-item  "><a class="nav-link"
 						href="redirectCpanel"> Trang Chủ </a></li>
-					<li class="nav-item active" <%if(!session.getAttribute("role").equals("qlcauhoi")){%>hidden<%}%>><a class="nav-link"
-						href="redirectCauHoi"> Câu Hỏi </a></li>
-					<li class="nav-item" <%if(!session.getAttribute("role").equals("qldethi")){%>hidden<%}%>><a class="nav-link" href="redirectDeThi">
-							Đề Thi </a></li>
+					<li class="nav-item active"
+						<%if (!session.getAttribute("role").equals("qlcauhoi")) {%> hidden
+						<%}%>><a class="nav-link" href="redirectCauHoi"> Câu Hỏi
+					</a></li>
+					<li class="nav-item"
+						<%if (!session.getAttribute("role").equals("qldethi")) {%> hidden
+						<%}%>><a class="nav-link" href="redirectDeThi"> Đề Thi </a></li>
 
-				<li class="nav-item" <%if(!session.getAttribute("role").equals("qlthisinh")){%>hidden<%}%>><a class="nav-link hidden" href="redirectThiSinhLopHoc">
-							Thí Sinh
-					</a></li>
-						<li class="nav-item " <%if(!session.getAttribute("role").equals("qlthisinh")){%>hidden<%}%>><a class="nav-link" href="redirectLopHoc">
-							Lớp Học
-					</a></li>
+					<li class="nav-item"
+						<%if (!session.getAttribute("role").equals("qlthisinh")) {%>
+						hidden <%}%>><a class="nav-link hidden"
+						href="redirectThiSinhLopHoc"> Thí Sinh </a></li>
+					<li class="nav-item "
+						<%if (!session.getAttribute("role").equals("qlthisinh")) {%>
+						hidden <%}%>><a class="nav-link" href="redirectLopHoc">
+							Lớp Học </a></li>
 				</ul>
 			</div>
 		</div>
@@ -93,7 +98,30 @@
 						<div class="card ">
 							<div class="card-header card-header-primary">
 								<div class="row">
-									<h4 class="card-title col-xs-12 my-auto ml-sm-5">Thêm câu hỏi</h4>
+
+									<div class="col-sm-4">
+										<h4 class="card-title col-xs-12 my-auto ml-sm-5">Thêm câu
+											hỏi</h4>
+									</div>
+									<div class="col-sm-8 ">
+										<form action="upload" enctype="multipart/form-data"
+											method="POST" class="form-inline row">
+											<div
+												class="custom-file bg-light text-warning rounded col-sm-8 float-right form-row">
+												<input type="file" class="custom-file-input d-inline "
+													name="filePath" required id="filePath"><label
+													class="custom-file-label form-control-file border"
+													for="filePath">Chọn file...</label>
+												<div class="invalid-feedback">Example invalid custom
+													file feedback</div>
+
+											</div>
+											<div class="col-sm-4 float-right">
+												<button class="btn btn-success" type="submit">Thêm</button>
+											</div>
+										</form>
+
+									</div>
 								</div>
 							</div>
 							<div class="card-body">
@@ -106,11 +134,15 @@
 												<div class="input-group my-auto col-xs-12 col-sm-4">
 													<div class="input-group-text"
 														style="border: none; background: none">
-														<input checked type="radio" name="radLevel" value="easy" class="ml-2 mr-1" aria-label="Radio button for following text input">
-														Dễ 
-														<input type="radio" name="radLevel" value="normal" class="ml-2 mr-1" aria-label="Radio button for following text input">
-														Trung bình 
-														<input type="radio" value="hard" name="radLevel" class="ml-2 mr-1" aria-label="Radio button for following text input">
+														<input checked type="radio" name="radLevel" value="easy"
+															class="ml-2 mr-1"
+															aria-label="Radio button for following text input">
+														Dễ <input type="radio" name="radLevel" value="normal"
+															class="ml-2 mr-1"
+															aria-label="Radio button for following text input">
+														Trung bình <input type="radio" value="hard"
+															name="radLevel" class="ml-2 mr-1"
+															aria-label="Radio button for following text input">
 														Khó
 													</div>
 												</div>
@@ -129,40 +161,45 @@
 											<div class="row mx-auto">
 												<label
 													class="btn btn-outline-success col-sm-12 px-auto py-auto">
-													<input type="radio" name="DapAn" id="a" value = "dapAn_A" autocomplete="off"class="col-sm-1">A. 
-													<input type="text" name="daA" id="a" class="col-sm-11" required>
+													<input type="radio" name="DapAn" id="a" value="dapAn_A"
+													autocomplete="off" class="col-sm-1">A. <input
+													type="text" name="daA" id="a" class="col-sm-11" required>
 												</label>
 											</div>
 											<div class="row mx-auto">
-												<label class="btn btn-outline-success col-sm-12"> 
-													<input type="radio" name="DapAn" id="b" value = "dapAn_B" autocomplete="off" class="col-sm-1">B. 
-													<input type="text" name="daB" id="b" class="col-sm-11" required>
+												<label class="btn btn-outline-success col-sm-12"> <input
+													type="radio" name="DapAn" id="b" value="dapAn_B"
+													autocomplete="off" class="col-sm-1">B. <input
+													type="text" name="daB" id="b" class="col-sm-11" required>
 												</label>
 											</div>
 											<div class="row mx-auto">
-												<label class="btn btn-outline-success col-sm-12">
-													<input type="radio" name="DapAn" id="c" value = "dapAn_C" autocomplete="off" class="col-sm-1">C. 
-													<input type="text" name="daC" id="c" class="col-sm-11" required>
+												<label class="btn btn-outline-success col-sm-12"> <input
+													type="radio" name="DapAn" id="c" value="dapAn_C"
+													autocomplete="off" class="col-sm-1">C. <input
+													type="text" name="daC" id="c" class="col-sm-11" required>
 												</label>
 											</div>
 											<div class="row mx-auto">
-												<label class="btn btn-outline-success col-sm-12"> 
-													<input type="radio" name="DapAn" id="d" value = "dapAn_D" autocomplete="off" class="col-sm-1" required>D. 
-													<input type="text" name="daD" id="d" class="col-sm-11" required>
+												<label class="btn btn-outline-success col-sm-12"> <input
+													type="radio" name="DapAn" id="d" value="dapAn_D"
+													autocomplete="off" class="col-sm-1" required>D. <input
+													type="text" name="daD" id="d" class="col-sm-11" required>
 												</label>
 											</div>
-											
+
 											</input-group-text>
 											<div class="row row justify-content-center">
 												<div class="col-ms-4 ">
 													<a href="redirectCauHoi" class="btn btn-danger col-auto ">Hủy</a>
-													<button class="btn btn-success col-auto ">Lưu Thông Tin</button>
+													<button class="btn btn-success col-auto ">Lưu
+														Thông Tin</button>
 												</div>
-												
+
 											</div>
 										</form>
 									</div>
-									
+
 								</div>
 							</div>
 						</div>

@@ -33,20 +33,27 @@ public class redirectXoaSinhVien extends HttpServlet {
 	        rd.forward(request,response); 
 		}
 		else {
-			LOPHOC_DAO lh = null;
-			try {
-				lh = new LOPHOC_DAO(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
-			} catch (Exception e1) {
-				e1.printStackTrace();
+			RequestDispatcher dispatcher=null;
+			if(ss.getAttribute("role").equals("qlthisinh")) {
+				LOPHOC_DAO lh = null;
+				try {
+					lh = new LOPHOC_DAO(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				try {
+					int MaTK = Integer.parseInt(request.getParameter("maTK"));
+					lh.XoaSinhVien(MaTK);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				dispatcher = request.getRequestDispatcher("redirectThiSinhLopHoc");
 			}
-			try {
-				int MaTK = Integer.parseInt(request.getParameter("maTK"));
-				lh.XoaSinhVien(MaTK);
-			} catch (SQLException e) {
-				e.printStackTrace();
+			else {
+				 dispatcher = request.getRequestDispatcher("WEB-INF/permission.jsp");
 			}
-			RequestDispatcher dispatcher = request.getRequestDispatcher("redirectThiSinhLopHoc");
 			dispatcher.forward(request, response);
+			
 		}
 	}
 

@@ -36,7 +36,13 @@ public class redirectSuaLopHoc extends HttpServlet {
 	        rd.include(request,response); 
 		}
 		else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/suaLopHoc.jsp");
+			RequestDispatcher dispatcher=null;
+			if(ss.getAttribute("role").equals("qlthisinh")) {
+				dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/suaLopHoc.jsp");
+			}
+			else {
+				 dispatcher = request.getRequestDispatcher("WEB-INF/permission.jsp");
+			}
 			dispatcher.forward(request, response);
 		}
 	}

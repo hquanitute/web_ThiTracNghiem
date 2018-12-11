@@ -35,7 +35,13 @@ public class redirectSuaCauHoi extends HttpServlet {
 	        rd.include(request,response); 
 		}
 		else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/suaCauHoi.jsp");
+			RequestDispatcher dispatcher=null;
+			if(ss.getAttribute("role").equals("qlcauhoi")) {
+				dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/suaCauHoi.jsp");
+			}
+			else {
+				 dispatcher = request.getRequestDispatcher("WEB-INF/permission.jsp");
+			}
 			dispatcher.forward(request, response);
 		}
 	}

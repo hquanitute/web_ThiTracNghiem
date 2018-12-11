@@ -45,24 +45,31 @@ public class redirectTrangThi extends HttpServlet {
 	        rd.include(request,response); 
 		}
 		else {
-			List<DeThiTheoUser> dethi= new ArrayList<>();
-			dsDeThiTheoUser ds = new dsDeThiTheoUser();
-			userDeThi_DAO thongtin = null;
-			try {
-				thongtin = new userDeThi_DAO(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
-			} catch (Exception e) {
-				e.printStackTrace();
+			RequestDispatcher dispatcher=null;
+			if(ss.getAttribute("role").equals("thisinh")) {
+				List<DeThiTheoUser> dethi= new ArrayList<>();
+				dsDeThiTheoUser ds = new dsDeThiTheoUser();
+				userDeThi_DAO thongtin = null;
+				try {
+					thongtin = new userDeThi_DAO(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				String MaTk= (String)ss.getAttribute("mataikhoan");
+				try {
+					dethi=thongtin.getListExamByUser(Integer.parseInt(MaTk));
+					ds.setDs(dethi);
+				} catch (NumberFormatException | SQLException e) {
+					e.printStackTrace();
+				}
+				request.setAttribute("dsDeThi", ds);
+				dispatcher = request.getRequestDispatcher("WEB-INF/client/ThiTracNghiem.jsp");
 			}
-			String MaTk= (String)ss.getAttribute("mataikhoan");
-			try {
-				dethi=thongtin.getListExamByUser(Integer.parseInt(MaTk));
-				ds.setDs(dethi);
-			} catch (NumberFormatException | SQLException e) {
-				e.printStackTrace();
+			else {
+				 dispatcher = request.getRequestDispatcher("WEB-INF/permission.jsp");
 			}
-			request.setAttribute("dsDeThi", ds);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/client/ThiTracNghiem.jsp");
 			dispatcher.forward(request, response);
+			
 		}
 	}
 

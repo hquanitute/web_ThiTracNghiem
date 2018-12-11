@@ -40,23 +40,30 @@ public class redirectXoaLopHoc extends HttpServlet {
 	        rd.forward(request,response); 
 		}
 		else {
-			LOPHOC1_DAO lh = null;
-			try {
-				lh = new LOPHOC1_DAO(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
-			} catch (Exception e1) {
-				e1.printStackTrace();
+			RequestDispatcher dispatcher=null;
+			if(ss.getAttribute("role").equals("qlthisinh")) {
+				LOPHOC1_DAO lh = null;
+				try {
+					lh = new LOPHOC1_DAO(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				try {
+					int MaLopHoc = Integer.parseInt(request.getParameter("maLopHoc"));
+					
+					    	lh.XoaLopHoc(MaLopHoc);
+					  
+					  
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				dispatcher = request.getRequestDispatcher("redirectLopHoc");
 			}
-			try {
-				int MaLopHoc = Integer.parseInt(request.getParameter("maLopHoc"));
-				
-				    	lh.XoaLopHoc(MaLopHoc);
-				  
-				  
-			} catch (SQLException e) {
-				e.printStackTrace();
+			else {
+				 dispatcher = request.getRequestDispatcher("WEB-INF/permission.jsp");
 			}
-			RequestDispatcher dispatcher = request.getRequestDispatcher("redirectLopHoc");
 			dispatcher.forward(request, response);
+			
 		}
 	}
 

@@ -39,21 +39,28 @@ public class redirectThiSinhLopHoc extends HttpServlet {
 	        rd.forward(request,response); 
 		}
 		else {
-			LOPHOC_DAO lh = null;
-			try {
-				lh = new LOPHOC_DAO(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
-			} catch (Exception e1) {
-				e1.printStackTrace();
+			RequestDispatcher dispatcher=null;
+			if(ss.getAttribute("role").equals("qlthisinh")) {
+				LOPHOC_DAO lh = null;
+				try {
+					lh = new LOPHOC_DAO(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				dsTaiKhoan ds= new dsTaiKhoan();
+				try {
+					ds.setDs(lh.xemDSTaiKhoan());
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				request.setAttribute("dsLH",ds );
+				dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/quanliSinhVien.jsp");
 			}
-			dsTaiKhoan ds= new dsTaiKhoan();
-			try {
-				ds.setDs(lh.xemDSTaiKhoan());
-			} catch (SQLException e) {
-				e.printStackTrace();
+			else {
+				 dispatcher = request.getRequestDispatcher("WEB-INF/permission.jsp");
 			}
-			request.setAttribute("dsLH",ds );
-			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/quanliSinhVien.jsp");
 			dispatcher.forward(request, response);
+			
 		}
 	}
 

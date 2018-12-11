@@ -173,7 +173,7 @@ public class DETHI_DAO {
 	public List<CauHoi> layCauHoiTuDeThi(int maDeThi) throws SQLException {
 		String sql ="SELECT MaDeThi,chitietdethi.MaCauHoi, NoiDungCauHoi, DapAn_A, DapAn_B, DapAn_C, DapAn_D, DapAnDung\r\n" + 
 				"FROM web.chitietdethi inner join cauhoi on chitietdethi.MaCauHoi=cauhoi.MaCauHoi\r\n" + 
-				"where MaDeThi="+maDeThi;
+				"where MaDeThi="+maDeThi +" order by chitietdethi.MaChiTiet ASC";
 				//+" limit "+giaTriDau+","+soLuong;
 		Statement stm=conn.createStatement();
 		ResultSet rs=stm.executeQuery(sql);

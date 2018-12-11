@@ -38,7 +38,13 @@ public class redirectSuaSinhVien extends HttpServlet {
 	        rd.include(request,response); 
 		}
 		else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/suaSinhVien.jsp");
+			RequestDispatcher dispatcher=null;
+			if(ss.getAttribute("role").equals("qlthisinh")) {
+				dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/suaSinhVien.jsp");
+			}
+			else {
+				 dispatcher = request.getRequestDispatcher("WEB-INF/permission.jsp");
+			}
 			dispatcher.forward(request, response);
 		}
 	}

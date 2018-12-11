@@ -29,7 +29,13 @@ public class redirectThemCauHoi extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("redirectLogin");
 			rd.include(request, response);
 		} else {
-			dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/themCauHoi.jsp");
+			if(ss.getAttribute("role").equals("qlcauhoi")) {
+				dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/themCauHoi.jsp");
+			}
+			else {
+				 dispatcher = request.getRequestDispatcher("WEB-INF/permission.jsp");
+			}
+			
 		}
 		dispatcher.forward(request, response);
 	}

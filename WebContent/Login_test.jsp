@@ -1,90 +1,75 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Đăng Nhập</title>
-<link href="${pageContext.request.contextPath}/Source/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="${pageContext.request.contextPath}/Source/bootstrap.min.js"></script>
-<script src="./assets/"></script>
-<script src="${pageContext.request.contextPath}Source/jquery-3.3.1.min.js"></script>
-<style>
-
-
-* {
-    -webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
-	outline: none;
-}
-
-    .form-control {
-	  position: relative;
-	  font-size: 16px;
-	  height: auto;
-	  padding: 10px;
-		@include box-sizing(border-box);
-
-		&:focus {
-		  z-index: 2;
-		}
-	}
-
-
-
-.login-form {
-	margin-top: 60px;
-}
-
-form[role=login] {
-	color: #5d5d5d;
-	background: Black ;
-	padding: 26px;
-	border-radius: 10px;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-}
-	form[role=login] img {
-		display: block;
-		margin: 0 auto;
-		margin-bottom: 35px;
-	}
-	form[role=login] input,
-	form[role=login] button {
-		font-size: 18px;
-		margin: 16px 0;
-	}
-	form[role=login] > div {
-		text-align: center;
-	}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Web thi trắc nghiệm online</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <link href="assets1/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+  <link href="assets1/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link type="text/css" href="assets1/css/argon.css?v=1.0.0" rel="stylesheet">
+ 
 </head>
-<body>
-<div class="container">
-  
-  <div class="row" id="pwd-container">
-    <div class="col-md-4"></div>
+
+<body background="assets1/css/111.png" style="background-size:cover">
+    <div class="header py-5 py-lg-5">
+      <div class="container">
+        <div class="header-body text-center mb-7">
+          <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-6">
+              <h1 class="text-white">Welcome to my test exam website !</h1>
+              <p class="text-lead text-white">Trang thi trắc nghiệm dành cho sinh viên đại học</p>
+            </div>
+          </div>
+        </div>
+    </div>
     
-    <div class="col-md-4">
-      <section class="login-form">
-        <form method="post" action="login" >
-          <img src="Source/Imagelogin.jpg"
-           class="img-responsive" alt="" />
-          <input type="text" name="inputUserName" placeholder="Tên đăng nhập" required class="form-control input-lg"/>
-          
-          <input type="password" class="form-control input-lg" name="inputPassword" placeholder="Mật khẩu"  />
-          
-          
-          <div class="pwstrength_viewport_progress"></div>
-          
-          
-          <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Đăng Nhập</button>
-          
-          </form>
-      </section>  
-      </div>     
+    </div>
+    <div class="container mt--7 pb-4">
+      <div class="row justify-content-center" style="background:co#F7F7F7">
+        <div class="col-lg-6 col-md-6">
+          <div class="card bg-secondary shadow border-0">   
+            <div class="card-body px-lg-3 py-lg-3">
+              <div class="text-center text-muted mb-4">
+                <small>Đăng nhập bằng tài khoản cá nhân</small>
+              </div>
+              <form role="form" method="post" action="login">
+                <div class="form-group mb-3">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Tên Đăng Nhập" name="inputUserName" type="text">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Mật Khẩu" name="inputPassword" type="password">
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button class="btn btn-primary btn-round">Đăng nhập</button>
+				  </div>
+              </form>
+            </div>
+          </div>
+         
+          </div>
+        </div>
       </div>
-</div>
+    </div>
+  </div>
+  <script src="assets1/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="assets1/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets1/js/argon.js?v=1.0.0"></script>
+  <script>
+	</script>
 </body>
+
 </html>

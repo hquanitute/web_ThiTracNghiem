@@ -42,21 +42,29 @@ public class redirectCauHoi extends HttpServlet {
 	        rd.forward(request,response); 
 		}
 		else {
-			CAUHOI_DAO ch = null;
-			try {
-				ch = new CAUHOI_DAO(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
-			} catch (Exception e1) {
-				e1.printStackTrace();
+			RequestDispatcher dispatcher=null;
+			if(ss.getAttribute("role").equals("qlcauhoi")) {
+				CAUHOI_DAO ch = null;
+				try {
+					ch = new CAUHOI_DAO(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				dsCauHoi ds= new dsCauHoi();
+				try {
+					ds.setDs(ch.xemDSCauHoi());
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				request.setAttribute("dsCH",ds );
+				dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/quanlyCauHoi.jsp");
+				
 			}
-			dsCauHoi ds= new dsCauHoi();
-			try {
-				ds.setDs(ch.xemDSCauHoi());
-			} catch (SQLException e) {
-				e.printStackTrace();
+			else {
+				 dispatcher = request.getRequestDispatcher("WEB-INF/permission.jsp");
 			}
-			request.setAttribute("dsCH",ds );
-			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/quanlyCauHoi.jsp");
 			dispatcher.forward(request, response);
+			
 		}
 	}
 

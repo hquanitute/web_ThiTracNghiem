@@ -43,20 +43,27 @@ public class redirectGanDeThi extends HttpServlet {
 	        rd.forward(request,response); 
 		}
 		else {
-			PHONGTHI_DAO pt = null;
-			try {
-				pt = new PHONGTHI_DAO(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
-			} catch (Exception e1) {
-				e1.printStackTrace();
+			RequestDispatcher dispatcher=null;
+			if(ss.getAttribute("role").equals("qldethi")) {
+				PHONGTHI_DAO pt = null;
+				try {
+					pt = new PHONGTHI_DAO(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				dsPhongThi ds = new dsPhongThi();
+				try {
+					ds.setDs(pt.xemDSPhongThi());
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				request.setAttribute("dsPT",ds );
+				 dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/ganDeThi.jsp");
+				
 			}
-			dsPhongThi ds = new dsPhongThi();
-			try {
-				ds.setDs(pt.xemDSPhongThi());
-			} catch (SQLException e) {
-				e.printStackTrace();
+			else {
+				 dispatcher = request.getRequestDispatcher("WEB-INF/permission.jsp");
 			}
-			request.setAttribute("dsPT",ds );
-			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/ganDeThi.jsp");
 			dispatcher.forward(request, response);
 		}
 	}

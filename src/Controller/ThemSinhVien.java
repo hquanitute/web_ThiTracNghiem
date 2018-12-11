@@ -29,7 +29,12 @@ public class ThemSinhVien extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("redirectLogin");
 			rd.include(request, response);
 		} else {
-			dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/themSinhVien.jsp");
+			if(ss.getAttribute("role").equals("qlthisinh")) {
+				dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/themSinhVien.jsp");
+			}
+			else {
+				 dispatcher = request.getRequestDispatcher("WEB-INF/permission.jsp");
+			}
 		}
 		dispatcher.forward(request, response);
 	}

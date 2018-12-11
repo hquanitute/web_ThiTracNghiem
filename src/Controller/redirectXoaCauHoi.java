@@ -40,23 +40,30 @@ public class redirectXoaCauHoi extends HttpServlet {
 	        rd.forward(request,response); 
 		}
 		else {
-			CAUHOI_DAO ch = null;
-			try {
-				ch = new CAUHOI_DAO(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
-			} catch (Exception e1) {
-				e1.printStackTrace();
+			RequestDispatcher dispatcher=null;
+			if(ss.getAttribute("role").equals("qlcauhoi")) {
+				CAUHOI_DAO ch = null;
+				try {
+					ch = new CAUHOI_DAO(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				try {
+					int MaCauHoi = Integer.parseInt(request.getParameter("maCH"));
+					
+					    	ch.XoaCauHoi(MaCauHoi);
+					  
+					  
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				dispatcher = request.getRequestDispatcher("redirectCauHoi");
 			}
-			try {
-				int MaCauHoi = Integer.parseInt(request.getParameter("maCH"));
-				
-				    	ch.XoaCauHoi(MaCauHoi);
-				  
-				  
-			} catch (SQLException e) {
-				e.printStackTrace();
+			else {
+				 dispatcher = request.getRequestDispatcher("WEB-INF/permission.jsp");
 			}
-			RequestDispatcher dispatcher = request.getRequestDispatcher("redirectCauHoi");
 			dispatcher.forward(request, response);
+			
 		}
 	}
 

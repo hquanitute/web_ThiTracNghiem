@@ -11,9 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import Model.CAUHOI_DAO;
 import Model.DETHI_DAO;
-import Objects.dsCauHoi;
 import Objects.dsDeThi;
 
 /**
@@ -43,21 +41,28 @@ public class redirectDeThi extends HttpServlet {
 	        rd.forward(request,response); 
 		}
 		else {
-			DETHI_DAO dt = null;
-			try {
-				dt = new DETHI_DAO(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
-			} catch (Exception e1) {
-				e1.printStackTrace();
+			RequestDispatcher dispatcher=null;
+			if(ss.getAttribute("role").equals("qldethi")) {
+				DETHI_DAO dt = null;
+				try {
+					dt = new DETHI_DAO(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				dsDeThi ds= new dsDeThi();
+				try {
+					ds.setDs(dt.xemDSDeThi());
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				request.setAttribute("dsDT",ds );
+				dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/quanlyDeThi.jsp");
 			}
-			dsDeThi ds= new dsDeThi();
-			try {
-				ds.setDs(dt.xemDSDeThi());
-			} catch (SQLException e) {
-				e.printStackTrace();
+			else {
+				 dispatcher = request.getRequestDispatcher("WEB-INF/permission.jsp");
 			}
-			request.setAttribute("dsDT",ds );
-			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/cPanel/quanlyDeThi.jsp");
 			dispatcher.forward(request, response);
+			
 		}
 	}
 
