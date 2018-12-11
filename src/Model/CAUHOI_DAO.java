@@ -1,6 +1,5 @@
 package Model;
 import java.sql.*;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +33,7 @@ public class CAUHOI_DAO {
 			Statement st = conn.createStatement();
 			st.executeUpdate(sql);
 	}
-	public List<CauHoi> xemDSCauHoi() throws SQLException {
+	public List<CauHoi> xemDSCauHoi1() throws SQLException {
 		List<CauHoi> ds = new ArrayList<CauHoi>();
 		Statement st= conn.createStatement();
 		String sql = "select * from cauhoi";
@@ -52,5 +51,36 @@ public class CAUHOI_DAO {
 		 ds.add(ch);
 		}
 		return ds;
+	}
+	
+	public List<CauHoi> xemDSCauHoi(int giaTriDau, int soLuong) throws SQLException {
+		List<CauHoi> ds = new ArrayList<CauHoi>();
+		Statement st= conn.createStatement();
+		String sql = "select * from cauhoi"+" limit "+giaTriDau+","+soLuong;
+		ResultSet rs=st.executeQuery(sql);
+		while (rs.next()) {
+		 CauHoi ch= new CauHoi();
+		 ch.setMaCauHoi(rs.getInt("MaCauHoi"));
+		 ch.setNoiDungCauHoi(rs.getString("NoiDungCauHoi"));
+		 ch.setMaMucDo(rs.getInt("MaMucDo"));
+		 ch.setDapAn_A(rs.getString("DapAn_A"));
+		 ch.setDapAn_B(rs.getString("DapAn_B"));
+		 ch.setDapAn_C(rs.getString("DapAn_C"));
+		 ch.setDapAn_D(rs.getString("DapAn_D"));
+		 ch.setDapAnDung(rs.getString("DapAnDung"));
+		 ds.add(ch);
+		}
+		return ds;
+	}
+	
+	public int xemTongSoCauHoi() throws SQLException {
+		int count=0;
+		Statement st= conn.createStatement();
+		String sql = "select count(MaCauHoi) from cauhoi";
+		ResultSet rs=st.executeQuery(sql);
+		while(rs.next()) {
+			count=rs.getInt(1);
+		}
+		return count;
 	}
 }

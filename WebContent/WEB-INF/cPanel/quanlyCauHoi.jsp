@@ -44,22 +44,27 @@
 				<ul class="nav">
 					<li class="nav-item "><a class="nav-link"
 						href="redirectCpanel"> Trang Chủ </a></li>
-					<li class="nav-item active" <%if(!session.getAttribute("role").equals("qlcauhoi")){%>hidden<%}%>><a class="nav-link"
-						href="redirectCauHoi"> Câu Hỏi </a></li>
-					<li class="nav-item" <%if(!session.getAttribute("role").equals("qldethi")){%>hidden<%}%>><a class="nav-link" href="redirectDeThi">
-							Đề Thi </a></li>
+					<li class="nav-item active"
+						<%if (!session.getAttribute("role").equals("qlcauhoi")) {%> hidden
+						<%}%>><a class="nav-link" href="redirectCauHoi"> Câu Hỏi
+					</a></li>
+					<li class="nav-item"
+						<%if (!session.getAttribute("role").equals("qldethi")) {%> hidden
+						<%}%>><a class="nav-link" href="redirectDeThi"> Đề Thi </a></li>
 
-				<li class="nav-item" <%if(!session.getAttribute("role").equals("qlthisinh")){%>hidden<%}%>><a class="nav-link hidden" href="redirectThiSinhLopHoc">
-							Thí Sinh
-					</a></li>
-						<li class="nav-item " <%if(!session.getAttribute("role").equals("qlthisinh")){%>hidden<%}%>><a class="nav-link" href="redirectLopHoc">
-							Lớp Học
-					</a></li>
+					<li class="nav-item"
+						<%if (!session.getAttribute("role").equals("qlthisinh")) {%>
+						hidden <%}%>><a class="nav-link hidden"
+						href="redirectThiSinhLopHoc"> Thí Sinh </a></li>
+					<li class="nav-item "
+						<%if (!session.getAttribute("role").equals("qlthisinh")) {%>
+						hidden <%}%>><a class="nav-link" href="redirectLopHoc">
+							Lớp Học </a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="main-panel">
-		
+
 			<nav
 				class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
 				<div class="container-fluid">
@@ -97,10 +102,10 @@
 						<div class="card ">
 							<div class="card-header card-header-primary">
 								<div class="row">
-									<h4 class="card-title col-xs-12 my-auto ml-sm-5">Danh sách câu hỏi</h4>
+									<h4 class="card-title col-xs-12 my-auto ml-sm-5">Danh sách
+										câu hỏi</h4>
 									<a class="btn btn-success col-xs-12 ml-auto mr-sm-5"
-										href="redirectThemCauHoi"> Thêm câu hỏi
-									</a>
+										href="redirectThemCauHoi"> Thêm câu hỏi </a>
 								</div>
 							</div>
 							<div class="card-body">
@@ -109,10 +114,11 @@
 										<thead class=" text-primary">
 											<tr>
 												<th style="text-align: center;" scope="col">Mã CH</th>
-												<th style="text-align: center;" scope="col">Nội dung câu hỏi</th>
-												<th style="text-align: center;"  scope="col">Câu trả lời</th>
+												<th style="text-align: center;" scope="col">Nội dung
+													câu hỏi</th>
+												<th style="text-align: center;" scope="col">Câu trả lời</th>
 												<th style="text-align: center;" scope="col">Đáp án đúng</th>
-												<th style="text-align: center;" scope="col">Mức độ </th>
+												<th style="text-align: center;" scope="col">Mức độ</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -129,12 +135,12 @@
 												<td style="text-align: center;"><%=ds.get(i).getNoiDungCauHoi()%></td>
 												<td style="text-align: center;"><%=ds.get(i).isDapAn_A()%>...</td>
 												<td style="text-align: center;"><%=ds.get(i).getDapAnDung()%></td>
-												<td style="text-align: center;" ><%=ds.get(i).getMaMucDo()%></td>
-												<td style="text-align: center;">
-                                                    <a href="redirectSuaCauHoi?maCH=<%=ds.get(i).getMaCauHoi()%>&ndCH=<%=ds.get(i).getNoiDungCauHoi()%>&daA=<%=ds.get(i).isDapAn_A()%>&daB=<%=ds.get(i).isDapAn_B()%>&daC=<%=ds.get(i).isDapAn_C()%>&daD=<%=ds.get(i).isDapAn_D()%>&daDung=<%=ds.get(i).getDapAnDung()%>&mucDo=<%=ds.get(i).getMaMucDo()%>" class="btn btn-info"><i class="fa fa-pencil"></i></a>
-                                                    <a href="redirectXoaCauHoi?maCH=<%=ds.get(i).getMaCauHoi()%>" class="btn btn-warning" ><i class="fa fa-trash"></i></a>
-                                                    
-                                                </td>
+												<td style="text-align: center;"><%=ds.get(i).getMaMucDo()%></td>
+												<td style="text-align: center;"><a
+													href="redirectSuaCauHoi?maCH=<%=ds.get(i).getMaCauHoi()%>&ndCH=<%=ds.get(i).getNoiDungCauHoi()%>&daA=<%=ds.get(i).isDapAn_A()%>&daB=<%=ds.get(i).isDapAn_B()%>&daC=<%=ds.get(i).isDapAn_C()%>&daD=<%=ds.get(i).isDapAn_D()%>&daDung=<%=ds.get(i).getDapAnDung()%>&mucDo=<%=ds.get(i).getMaMucDo()%>"
+													class="btn btn-info"><i class="fa fa-pencil"></i></a> <a
+													href="redirectXoaCauHoi?maCH=<%=ds.get(i).getMaCauHoi()%>"
+													class="btn btn-warning"><i class="fa fa-trash"></i></a></td>
 											</tr>
 											<%
 												}
@@ -144,13 +150,67 @@
 									</table>
 									<nav aria-label="Page navigation example">
 										<ul class="pagination justify-content-center">
+											<%
+												String soCauHoi = (String) request.getAttribute("total");
+												int total = (int) Integer.parseInt(soCauHoi);
+												String trang = (String) request.getAttribute("pages");
+												int pages = (int) Integer.parseInt(trang);
+												if (pages > 5 && pages < total/4 - 4) {
+											%>
+
 											<li class="page-item disabled"><a class="page-link"
 												href="#" tabindex="-1">Trước</a></li>
-											<li class="page-item"><a class="page-link" href="#">1</a></li>
-											<li class="page-item"><a class="page-link" href="#">2</a></li>
-											<li class="page-item"><a class="page-link" href="#">3</a></li>
+											<%
+												for (int i = pages - 5; i < pages + 5; i++) {
+											%>
+											<li class="page-item"><a class="page-link"
+												href="redirectCauHoi?pages=<%=i%>"><%=i%></a></li>
+											<%
+												}
+											%>
 											<li class="page-item"><a class="page-link" href="#">Sau</a>
 											</li>
+
+											<%
+												}
+												if (pages <= 5&& pages>0) {
+											%>
+
+											<li class="page-item disabled"><a class="page-link"
+												href="#" tabindex="-1">Trước</a></li>
+											<%
+												for (int i = 1; i < 11; i++) {
+											%>
+											<li class="page-item"><a class="page-link"
+												href="redirectCauHoi?pages=<%=i%>"><%=i%></a></li>
+											<%
+												}
+											%>
+											<li class="page-item"><a class="page-link" href="#">Sau</a>
+											</li>
+
+											<%
+												}
+												if (pages >= (total/4 - 4)&& pages<=total/4+1) {
+											%>
+
+											<li class="page-item disabled"><a class="page-link"
+												href="#" tabindex="-1">Trước</a></li>
+											<%
+												for (int i = total/4 - 10; i <= total/4+1; i++) {
+											%>
+											<li class="page-item"><a class="page-link"
+												href="redirectCauHoi?pages=<%=i%>"><%=i%></a></li>
+											<%
+												}
+											%>
+											<li class="page-item"><a class="page-link" href="#">Sau</a>
+											</li>
+
+											<%
+												}
+											%>
+
 										</ul>
 									</nav>
 								</div>

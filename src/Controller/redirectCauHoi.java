@@ -44,15 +44,34 @@ public class redirectCauHoi extends HttpServlet {
 		else {
 			RequestDispatcher dispatcher=null;
 			if(ss.getAttribute("role").equals("qlcauhoi")) {
+				int pages =1, giaTriDau,soLuong;
+				if(request.getParameter("pages")!=null) {
+					pages= (int) Integer.parseInt(request.getParameter("pages"));
+				}
+				request.setAttribute("pages", String.valueOf(pages));
 				CAUHOI_DAO ch = null;
 				try {
 					ch = new CAUHOI_DAO(ss.getAttribute("username").toString(),ss.getAttribute("pass").toString());
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
+				int total = 0;
+				try {
+					total = ch.xemTongSoCauHoi();
+					request.setAttribute("total", String.valueOf(total) );
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+				if(total<=4) {
+					giaTriDau=1;
+					soLuong=total;
+				}else {
+					giaTriDau=(pages-1)*4;
+					soLuong=4;
+				}
 				dsCauHoi ds= new dsCauHoi();
 				try {
-					ds.setDs(ch.xemDSCauHoi());
+					ds.setDs(ch.xemDSCauHoi(giaTriDau,soLuong));
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}

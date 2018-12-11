@@ -191,6 +191,8 @@ public class DETHI_DAO {
 		}
 		return ds;
 	}
+	
+	//xoa
 	public int demDoCauHoiBangMaDeThi(int maDeThi) throws SQLException {
 		String sql ="SELECT MaDeThi,chitietdethi.MaCauHoi, NoiDungCauHoi, DapAn_A, DapAn_B, DapAn_C, DapAn_D, DapAnDung\r\n" + 
 				"FROM web.chitietdethi inner join cauhoi on chitietdethi.MaCauHoi=cauhoi.MaCauHoi\r\n" + 
