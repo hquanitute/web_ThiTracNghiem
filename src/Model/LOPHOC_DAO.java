@@ -44,4 +44,21 @@ public class LOPHOC_DAO {
 		}
 		return ds;
 	}
+	public List<TaiKhoan> xemDSTaiKhoanTimKiem(String tenSV) throws SQLException {
+		List<TaiKhoan> ds = new ArrayList<TaiKhoan>();
+		Statement st= conn.createStatement();
+		String sql = "select * from taikhoan where TenSV like N'%"+tenSV+"%'";
+		ResultSet rs=st.executeQuery(sql);
+		while (rs.next()) {
+		TaiKhoan tk= new TaiKhoan();
+		 tk.setMaTK(rs.getInt("MaTK"));
+		 tk.setTenSV(rs.getString("TenSV"));
+		 tk.setGioiTinh(rs.getString("GioiTinh"));
+		 tk.setSDT(rs.getString("SDT"));
+		/* lh.setHocKy(rs.getInt("HocKy"));
+		 lh.setMaLopHoc(rs.getInt("MaLopHoc"));*/
+		 ds.add(tk);
+		}
+		return ds;
+	}
 }

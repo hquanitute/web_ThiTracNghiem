@@ -32,13 +32,30 @@ public class LOPHOC1_DAO {
 		Statement st= conn.createStatement();
 		String sql = "select * from LopHoc";
 		ResultSet rs=st.executeQuery(sql);
-		while (rs.next()) {
+		while (rs.next()) 
+		{
 		LopHoc lh = new LopHoc();
 		 lh.setMaLopHoc(rs.getInt("MaLopHoc"));
 		 lh.setTenLopHoc(rs.getString("TenLopHoc"));
 		 lh.setHocKy(rs.getInt("HocKy"));
 		 ds.add(lh);
 		}
+		return ds;
+	}
+	public List<LopHoc> xemDSLopHocTimKiem(String tenLopHoc) throws SQLException 
+	{
+			List<LopHoc> ds = new ArrayList<LopHoc>();
+			Statement st= conn.createStatement();
+			String sql = "select * from LopHoc where TenLopHoc like '%"+tenLopHoc+"%'";
+			ResultSet rs=st.executeQuery(sql);
+			while (rs.next()) 
+			{
+			LopHoc lh = new LopHoc();
+			 lh.setMaLopHoc(rs.getInt("MaLopHoc"));
+			 lh.setTenLopHoc(rs.getString("TenLopHoc"));
+			 lh.setHocKy(rs.getInt("HocKy"));
+			 ds.add(lh);
+			}
 		return ds;
 	}
 }

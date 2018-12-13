@@ -13,7 +13,7 @@
 	href="../assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="../assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Website Demo Of Group 1</title>
+<title>Sửa Thông Tin Lớp Học</title>
 
 <!--     Fonts and icons     -->
 
@@ -35,7 +35,7 @@
 			data-image="../assets/img/sidebar-1.jpg">
 			
 			<div class="logo">
-				<a href="#" class="simple-text logo-normal"></a>
+				<img src ="assets33/img/ava.png" width ="150px" height="150px" style="margin-left:50px">
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
@@ -60,19 +60,8 @@
 			<nav
 				class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
 				<div class="container-fluid">
-					<div class="navbar-wrapper">
-						<a class="navbar-brand" href="#"> LẬP TRÌNH WEB</a>
-					</div>
-					<button class="navbar-toggler" type="button" data-toggle="collapse"
-						aria-controls="navigation-index" aria-expanded="false"
-						aria-label="Toggle navigation">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span>
-					</button>
 					<div class="collapse navbar-collapse justify-content-end">
-						<a class="btn btn-primary my-auto" href="logout">Đăng xuất</a>
+						<a class="btn btn-primary btn-round" href="logout">Đăng xuất</a>
 					</div>
 				</div>
 			</nav>
@@ -82,7 +71,7 @@
 						<div class="card ">
 							<div class="card-header card-header-primary">
 								<div class="row">
-									<h4 class="card-title col-xs-12 my-auto ml-sm-5">Chỉnh sửa lớp học</h4>
+									<h4 class="card-title col-xs-12 my-auto ml-sm-5">Chỉnh Sửa Thông Tin Lớp Học</h4>
 								</div>
 							</div>
 							<div class="card-body">
@@ -90,7 +79,7 @@
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="row">
-												<h5 class="mb-0 mt-2 col-sm-4">Tên lớp học</h5>
+												<h5 class="mb-0 mt-2 col-sm-4">Tên Lớp Học</h5>
 												<input type="text"
 													class="form-control form-control-sm col-sm-4	"
 													name="tenLopHoc" aria-describedby="helpId"
@@ -100,7 +89,7 @@
 
 											<!--  -->
 											<div class="row">
-												<h5 class="mb-0 mt-2 col-sm-4">Học kỳ</h5>
+												<h5 class="mb-0 mt-2 col-sm-4">Học Kỳ</h5>
 												<input type="text"
 													class="form-control form-control-sm col-sm-4"
 													name="hocKy" aria-describedby="helpId"
@@ -116,8 +105,8 @@
 											</div>
 										</div>
 										<div class="col-sm-6 py-4">
-											<button class="btn btn-success my-auto" >Lưu thông tin</button>
-											<a class="btn btn-warning my-auto " href="redirectLopHoc">Hủy</a>
+											<button class="btn btn-success my-auto btn-round" >Lưu Thông Tin</button>
+											<a class="btn btn-warning my-auto btn-round " href="redirectLopHoc">Hủy</a>
 										</div>
 										
 									</div>

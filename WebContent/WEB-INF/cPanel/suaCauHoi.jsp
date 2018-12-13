@@ -13,7 +13,7 @@
 	href="../assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="../assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Web Demo Of Group 1</title>
+<title>Sửa Thông Tin Câu Hỏi</title>
 
 <!--     Fonts and icons     -->
 
@@ -39,7 +39,7 @@
         Tip 2: you can also add an image using data-image tag
     -->
 			<div class="logo">
-				<a href="#" class="simple-text logo-normal"></a>
+				<img src ="assets33/img/ava.png" width ="150px" height="150px" style="margin-left:50px">
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
@@ -64,30 +64,9 @@
 			<nav
 				class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
 				<div class="container-fluid">
-					<div class="navbar-wrapper">
-						<a class="navbar-brand" href="#">LẬP TRÌNH WEB</a>
-					</div>
-					<button class="navbar-toggler" type="button" data-toggle="collapse"
-						aria-controls="navigation-index" aria-expanded="false"
-						aria-label="Toggle navigation">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span>
-					</button>
 					<div class="collapse navbar-collapse justify-content-end">
-						<form class="navbar-form">
-							<div class="input-group no-border">
-								<input type="text" value="" class="form-control"
-									placeholder="Tìm trong trang ...">
-								<button type="submit"
-									class="btn btn-white btn-round btn-just-icon">
-									<i>search</i>
-									<div class="ripple-container"></div>
-								</button>
-							</div>
-						</form>
-						<a class="btn btn-primary" href="logout">Đăng xuất</a>
+						
+						<a class="btn btn-primary btn-round" href="logout">Đăng Xuất</a>
 					</div>
 				</div>
 			</nav>
@@ -98,7 +77,7 @@
 						<div class="card ">
 							<div class="card-header card-header-primary">
 								<div class="row">
-									<h4 class="card-title col-xs-12 my-auto ml-sm-5">Chỉnh sửa câu hỏi</h4>
+									<h4 class="card-title col-xs-12 my-auto ml-sm-5">Chỉnh Sửa Câu Hỏi</h4>
 								</div>
 							</div>
 							<div class="card-body">
@@ -106,7 +85,7 @@
 									<div class="card-body">
 										<!--Phần body -->
 										<form action="redirectLuuCauHoi">
-											<h5 class="card-title mb-0">Mức độ :</h5>
+											<h5 class="card-title mb-0">Mức Độ :</h5>
 											<div class="row">
 												<div class="input-group my-auto col-xs-12 col-sm-4">
 													<div class="input-group-text"
@@ -118,7 +97,7 @@
 														Dễ <input type="radio" name="radLevel" value="normal" class="ml-2 mr-1"
 															<c:if test="${param.mucDo == '2'}">checked</c:if>
 															aria-label="Radio button for following text input">
-														Trung bình <input type="radio" value="hard" name="radLevel"
+														Trung Bình <input type="radio" value="hard" name="radLevel"
 															class="ml-2 mr-1"
 															<c:if test="${param.mucDo == '3'}">checked</c:if>
 															aria-label="Radio button for following text input">
@@ -129,7 +108,7 @@
 											<div class="">
 												<!--Đề bài-->
 												<div class="form-group">
-													<label>Nội dung câu hỏi :</label> <input type="text"
+													<label>Nội Dung Câu Hỏi :</label> <input type="text"
 														class="form-control form-control-sm" name="e_ndCH"
 														id="question" aria-describedby="helpId" class="col-sm-12"
 														value="${param.ndCH}">
@@ -179,8 +158,8 @@
 											</input-group-text>
 											<div class="row row justify-content-center">
 												<div class="col-sm-4 ">
-													<button class="btn btn-success col-auto ">Lưu Thông Tin</button>
-													<a href="redirectCauHoi" class="btn btn-danger col-auto ">Hủy</a>
+													<button class="btn btn-success col-auto btn-round ">Lưu Thông Tin</button>
+													<a href="redirectCauHoi" class="btn btn-danger col-auto btn-round">Hủy</a>
 												</div>
 												
 											</div>

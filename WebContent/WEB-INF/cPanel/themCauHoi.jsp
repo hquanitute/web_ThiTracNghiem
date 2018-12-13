@@ -13,7 +13,7 @@
 	href="../assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="../assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Website Demo Of Group 1</title>
+<title>Thêm Câu Hỏi</title>
 
 <!--     Fonts and icons     -->
 
@@ -34,7 +34,7 @@
 		<div class="sidebar" data-color="purple" data-background-color="white"
 			data-image="../assets/img/sidebar-1.jpg">
 			<div class="logo">
-				<a href="#" class="simple-text logo-normal"></a>
+				<img src ="assets33/img/ava.png" width ="150px" height="150px" style="margin-left:50px">
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
@@ -64,30 +64,10 @@
 			<nav
 				class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
 				<div class="container-fluid">
-					<div class="navbar-wrapper">
-						<a class="navbar-brand" href="#"> LẬP TRÌNH WEB</a>
-					</div>
-					<button class="navbar-toggler" type="button" data-toggle="collapse"
-						aria-controls="navigation-index" aria-expanded="false"
-						aria-label="Toggle navigation">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span>
-					</button>
+		
 					<div class="collapse navbar-collapse justify-content-end">
-						<form class="navbar-form">
-							<div class="input-group no-border">
-								<input type="text" value="" class="form-control"
-									placeholder="Tìm trong trang ...">
-								<button type="submit"
-									class="btn btn-white btn-round btn-just-icon">
-									<i>search</i>
-									<div class="ripple-container"></div>
-								</button>
-							</div>
-						</form>
-						<a class="btn btn-primary" href="logout">Đăng xuất</a>
+						
+						<a class="btn btn-primary btn-round" href="logout">Đăng xuất</a>
 					</div>
 				</div>
 			</nav>
@@ -100,8 +80,8 @@
 								<div class="row">
 
 									<div class="col-sm-4">
-										<h4 class="card-title col-xs-12 my-auto ml-sm-5">Thêm câu
-											hỏi</h4>
+										<h4 class="card-title col-xs-12 my-auto ml-sm-5">Thêm Câu
+											Hỏi</h4>
 									</div>
 									<div class="col-sm-8 ">
 										<form action="upload" enctype="multipart/form-data"
@@ -111,13 +91,13 @@
 												<input type="file" class="custom-file-input d-inline "
 													name="filePath" required id="filePath"><label
 													class="custom-file-label form-control-file border"
-													for="filePath">Chọn file...</label>
+													for="filePath">Chọn File...</label>
 												<div class="invalid-feedback">Example invalid custom
 													file feedback</div>
 
 											</div>
 											<div class="col-sm-4 float-right">
-												<button class="btn btn-success" type="submit">Thêm</button>
+												<button class="btn btn-success btn-round" type="submit">Thêm Từ File</button>
 											</div>
 										</form>
 
@@ -129,7 +109,7 @@
 									<div class="card-body">
 										<!--Phần body -->
 										<form action="redirectLuuCauHoiThem">
-											<h5 class="card-title mb-0">Mức độ :</h5>
+											<h5 class="card-title mb-0">Mức Độ :</h5>
 											<div class="row">
 												<div class="input-group my-auto col-xs-12 col-sm-4">
 													<div class="input-group-text"
@@ -140,7 +120,7 @@
 														Dễ <input type="radio" name="radLevel" value="normal"
 															class="ml-2 mr-1"
 															aria-label="Radio button for following text input">
-														Trung bình <input type="radio" value="hard"
+														Trung Bình <input type="radio" value="hard"
 															name="radLevel" class="ml-2 mr-1"
 															aria-label="Radio button for following text input">
 														Khó
@@ -150,7 +130,7 @@
 											<div class="">
 												<!--Đề bài-->
 												<div class="form-group">
-													<label>Nội dung câu hỏi :</label> <input type="text"
+													<label>Nội Dung Câu Hỏi :</label> <input type="text"
 														class="form-control form-control-sm" name="e_ndCH"
 														id="question" aria-describedby="helpId" class="col-sm-12"
 														required>
@@ -191,8 +171,8 @@
 											</input-group-text>
 											<div class="row row justify-content-center">
 												<div class="col-ms-4 ">
-													<a href="redirectCauHoi" class="btn btn-danger col-auto ">Hủy</a>
-													<button class="btn btn-success col-auto ">Lưu
+													<a href="redirectCauHoi" class="btn btn-danger col-auto btn-round ">Hủy</a>
+													<button class="btn btn-success col-auto btn-round">Lưu
 														Thông Tin</button>
 												</div>
 

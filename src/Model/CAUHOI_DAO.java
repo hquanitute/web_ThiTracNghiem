@@ -72,6 +72,25 @@ public class CAUHOI_DAO {
 		}
 		return ds;
 	}
+	public List<CauHoi> xemDSCauHoiTimKiem(int giaTriDau, int soLuong,String noiDungCauHoi) throws SQLException {
+		List<CauHoi> ds = new ArrayList<CauHoi>();
+		Statement st= conn.createStatement();
+		String sql = "select * from cauhoi where NoiDungCauHoi like '%"+noiDungCauHoi+"%' limit "+giaTriDau+","+soLuong;
+		ResultSet rs=st.executeQuery(sql);
+		while (rs.next()) {
+		 CauHoi ch= new CauHoi();
+		 ch.setMaCauHoi(rs.getInt("MaCauHoi"));
+		 ch.setNoiDungCauHoi(rs.getString("NoiDungCauHoi"));
+		 ch.setMaMucDo(rs.getInt("MaMucDo"));
+		 ch.setDapAn_A(rs.getString("DapAn_A"));
+		 ch.setDapAn_B(rs.getString("DapAn_B"));
+		 ch.setDapAn_C(rs.getString("DapAn_C"));
+		 ch.setDapAn_D(rs.getString("DapAn_D"));
+		 ch.setDapAnDung(rs.getString("DapAnDung"));
+		 ds.add(ch);
+		}
+		return ds;
+	}
 	
 	public int xemTongSoCauHoi() throws SQLException {
 		int count=0;

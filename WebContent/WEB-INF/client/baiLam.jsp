@@ -126,8 +126,8 @@
 					</div>
 				</div>
 
-				<div class="col-sm-4 thongtin">
-					<div class="card text-center mb-3 ">
+				<div class="col-sm-4 ">
+					<div class="card text-center mb-3 thongtin">
 
 						<div class="card-body">
 							<div>
@@ -164,7 +164,7 @@
 						</div>
 					</div>
 
-					<div class="card text-center">
+					<div class="card text-center sidebar">
 						<div class="card-body px-3 py-3">
 							<%
 								for (int i = 0; i < ds.size(); i++) {

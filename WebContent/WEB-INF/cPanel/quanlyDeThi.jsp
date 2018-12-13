@@ -14,7 +14,7 @@
 	href="../assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="../assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Website Demo Of Group 1</title>
+<title>Quản Lý Đề Thi</title>
 <meta content-width="device-width" initial-scale="1.0"
 	maximum-scale="1.0" user-scalable="0" shrink-to-fit="no"
 	name="viewport" />
@@ -42,7 +42,7 @@
         Tip 2: you can also add an image using data-image tag
     -->
 			<div class="logo">
-				<a href="#" class="simple-text logo-normal"> GROUP 1 </a>
+				<img src ="assets33/img/ava.png" width ="150px" height="150px" style="margin-left:50px">
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
@@ -67,30 +67,8 @@
 			<nav
 				class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
 				<div class="container-fluid">
-					<div class="navbar-wrapper">
-						<a class="navbar-brand" href="#"> Web Demo</a>
-					</div>
-					<button class="navbar-toggler" type="button" data-toggle="collapse"
-						aria-controls="navigation-index" aria-expanded="false"
-						aria-label="Toggle navigation">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span>
-					</button>
 					<div class="collapse navbar-collapse justify-content-end">
-						<form class="navbar-form">
-							<div class="input-group no-border">
-								<input type="text" value="" class="form-control"
-									placeholder="Tìm kiếm ...">
-								<button type="submit"
-									class="btn btn-white btn-round btn-just-icon">
-									<i>search</i>
-									<div class="ripple-container"></div>
-								</button>
-							</div>
-						</form>
-						<a href="logout">Đăng xuất</a>
+						<a class="btn btn-primary btn-round" href="logout">Đăng xuất</a>
 					</div>
 				</div>
 			</nav>
@@ -101,12 +79,12 @@
 						<div class="card ">
 							<div class="card-header card-header-primary">
 								<div class="row">
-									<h4 class="card-title col-xs-12 my-auto ml-sm-5">Danh sách đề thi</h4>
-									<a class="btn btn-success col-xs-12 ml-auto mr-sm-5"
-										href="redirectGanDeThi"> <i class="fa fa-calendar-plus-o "></i>  Gán đề thi
+									<h4 class="card-title col-xs-12 my-auto ml-sm-5">Danh Sách Đề Thi</h4>
+									<a class="btn btn-success col-xs-12 ml-auto mr-sm-5 btn-round"
+										href="redirectGanDeThi"> <i class="fa fa-calendar-plus-o "></i>  Gán Đề Thi
 									</a>
-									 <a class="btn btn-success col-xs-12 ml-auto mr-sm-5"
-										href="redirectAddDeThi"> <i class="fa fa-plus"></i> Thêm đề thi
+									 <a class="btn btn-success col-xs-12 ml-auto mr-sm-5 btn-round"
+										href="redirectAddDeThi">Thêm Đề Thi
 									</a>
 								</div>
 							</div>
@@ -116,14 +94,14 @@
 										<thead class=" text-primary">
 											<tr>
 												<th scope="col">Mã</th>
-												<th scope="col">Học kỳ</th>
-												<th scope="col">Thời lượng</th>
+												<th scope="col">Học Kỳ</th>
+												<th scope="col">Thời Lượng</th>
 												<th scope="col">Dễ</th>
 												<th scope="col">TB</th>
 												<th scope="col">Khó</th>
-												<th scope="col">Thang điểm</th>
-												<th scope="col">Thời gian Bắt đầu</th>
-												<th scope="col">Kích hoạt</th>
+												<th scope="col">Thang Điểm</th>
+												<th scope="col">Thời Gian Bắt Đầu</th>
+												<th scope="col">Kích Hoạt</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -156,9 +134,9 @@
 											thoiGianBatDau=<%=ds.get(i).getThoiGianBatDau()%>&
 											isActive=<%=ds.get(i).isIsActive()%>
 											"
-													class="btn btn-info"><i class="fa fa-pencil"></i></a> <a
+													class="btn btn-info btn-round"><i class="fa fa-pencil"></i></a> <a
 													href="xoaDeThi?maDT=<%=ds.get(i).getMaDeThi()%>"
-													class="btn btn-warning"><i class="fa fa-trash"></i></a></td>
+													class="btn btn-warning btn-round"><i class="fa fa-trash"></i></a></td>
 											</tr>
 											<%
 												}
@@ -169,11 +147,11 @@
 									<nav aria-label="Page navigation example">
 										<ul class="pagination justify-content-center">
 											<li class="page-item disabled"><a class="page-link"
-												href="#" tabindex="-1">Previous</a></li>
+												href="#" tabindex="-1">Trang Trước</a></li>
 											<li class="page-item"><a class="page-link" href="#">1</a></li>
 											<li class="page-item"><a class="page-link" href="#">2</a></li>
 											<li class="page-item"><a class="page-link" href="#">3</a></li>
-											<li class="page-item"><a class="page-link" href="#">Next</a>
+											<li class="page-item"><a class="page-link" href="#">Trang Sau</a>
 											</li>
 										</ul>
 									</nav>

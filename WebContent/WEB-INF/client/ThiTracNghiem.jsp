@@ -35,8 +35,7 @@
 				</ul>
 			</div>
 			<div class="ml-auto">
-				<a class="text-danger " href="logout"><span
-					class="border border-danger px-3 py-2 bg-warning ">Thoát</span></a>
+				<a class="text-danger btn btn-warning" href="logout">Thoát</a>
 			</div>
 		</nav>
 		<div class="content mx-5">

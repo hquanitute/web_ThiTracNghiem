@@ -23,7 +23,7 @@ public class DETHI_DAO {
 		String sql="INSERT INTO `web`.`dethi`\r\n" + 
 				"(`MaDeThi`,`HocKy`,`ThoiGianBatDau`,`ThoiLuong`,`SoCHDe`,`SoCHTrungBinh`,`SoCHKho`,`ThangDiem`,`IsActive`)\r\n" + 
 				"\r\n" + 
-				"select(select (max(MaDeThi)+1) from dethi order by MaDeThi),\r\n" + 
+				"select(select coalesce((max(MaDeThi)+1),1) from dethi order by MaDeThi),\r\n" + 
 				HocKy + ","+ "'"+ThoiGian+"'" + ","+ thoiLuong + ","+ SoCHDe + ","+ SoCHTB + ","+ SoCHKho + ","+ ThangDiem + ","+ IsActive;	
 		Statement stm = conn.createStatement();
 		stm.executeUpdate(sql);
@@ -88,7 +88,7 @@ public class DETHI_DAO {
 				"where MaMucDo=3\r\n" + 
 				"order by rand()\r\n" + 
 				"limit "+ soCHKho;
-		String MaDT="select(select (max(MaDeThi)) from dethi order by MaDeThi)";
+		String MaDT="select(select coalesce((max(MaDeThi)),1) from dethi order by MaDeThi)";
 		
 		Statement stm1 = conn.createStatement();
 		

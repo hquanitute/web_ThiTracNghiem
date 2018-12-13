@@ -10,12 +10,7 @@
 	href="${pageContext.request.contextPath}/assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Web Demo Of Group 1</title>
-
-<!--     Fonts and icons     -->
-
-
-<!-- CSS Files -->
+<title>Giới Thiệu Trang</title>
 <link
 	href="${pageContext.request.contextPath}/assets/css/material-dashboard.css?v=2.1.0"
 	rel="stylesheet" />
@@ -27,25 +22,13 @@
 </head>
 
 
-<body background="${pageContext.request.contextPath}/assets/img/111.png" style="background-size:cover">
+<body background="${pageContext.request.contextPath}/assets33/img/111.png" style="background-size:cover">
   <div class="wrapper">
     <div class="main-panel">
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
           <div class="container-fluid">
-              <div class="navbar-wrapper">
-                <a class="navbar-brand text-white" ><i>LẬP TRÌNH WEB</i></a>
-                
-              </div>
-        
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-          </button>
+              <div class="navbar-wrapper"></div>
           <div class="collapse navbar-collapse justify-content-end">
-           
-            
           </div>
         </div>
       </nav>
@@ -56,14 +39,14 @@
             <div class="col-md-4">
               <div class="card card-profile">
                 <div class="card-avatar">
-                    <img src="assets/img/faces/web.jpg" />
+                    <img src="assets33/img/faces/web.jpg" />
                 </div>
                 <div class="card-body" >
-                  <span style="text-align: center" ><h4 class="card-category text-black"><b>NHÓM SINH VIÊN</b></h4></span>
-                  <span style="text-align: left" ><i><h5 class="card-title"><b>Võ Hồng Phúc - 16110423</b></h5></i></span>
-                  <span style="text-align: left"><i><h5 class="card-title"><b>Phạm Kim Hùng - 16110346</b></h5></i></span>
-                  <span style="text-align: left"><i><h5 class="card-title"><b>Lê Hoàng Hưng - 16110348</b></h5></i></span>
-                  <span style="text-align: left"><h5 class="card-title"><i><b>Hồ Nguyễn Hoàng Quân - 16110329</b></i></h5></span>
+                  <span style="text-align: center" ><h4 class="card-category text-black"><center><b>NHÓM SINH VIÊN</center></b></h4></span>
+                  <span style="text-align: left" ><i><h5 class="card-title"><b><center>Võ Hồng Phúc - 16110423</center></b></h5></i></span>
+                  <span style="text-align: left"><i><h5 class="card-title"><b><center>Phạm Kim Hùng - 16110346</center></b></h5></i></span>
+                  <span style="text-align: left"><i><h5 class="card-title"><b><center>Lê Hoàng Hưng - 16110348</center></b></h5></i></span>
+                  <span style="text-align: left"><h5 class="card-title"><i><b><center>Hồ Nguyễn Hoàng Quân - 16110329</b></i></h5></span>
                   <a class="btn btn-primary btn-round" href="redirectLogin">Đăng nhập</a>
                 </div>
               </div>
@@ -71,15 +54,13 @@
             <div class="col-md-7">
               <div class="card card-profile">
                 <div class="card-avatar">
-                    <img class="img" src="assets/img/faces/marc.jpg" />
-                  </a>
+                    <img class="img" src="assets33/img/faces/marc.jpg" />
                 </div>
                 <div class="card-body" >
                         <span style="text-align: center" ><h4 class="card-category text-black"><b>GIỚI THIỆU</b></h4></span>
-                       <span style="text-align: left" ><h4 class="card-category text-black"><b> Phần mềm thi trắc nghiệm là một phần mềm thiết thực cho việc thi và đánh giá kết quả học tập của sinh viên một cách thiết thực và khách quan nhất.</b></h4></span>
-                       <span style="text-align: left" ><h4 class="card-category text-black"><b> Phần mền thi trắc nghiệm trực tuyến không chỉ giúp cho sinh viên đại học từ xa tự học tự nghiên cứu và trau dồi kiến thức mà còn phục vụ cho học sinh các cấp, hay sinh viên học tập trung tại các trường đại học.</b></h4></span>
-                       <span style="text-align: left" ><h4 class="card-category text-black"><b> Phần mềm thi trắc nghiệm trực tuyến giúp cho công tác quản lý và tổ chức quản lý các kỳ thi thuận tiện và khách quan nhất.</b></h4></span>
-                       <span style="text-align: left" ><h4 class="card-category text-black"><b> Ngoài ra phần mềm còn hỗ trợ những thông báo từ nhà trường, từ khoa, từ các giảng viên đến với sinh viên dễ dàng</b></h4></span>
+                       <span style="text-align: left" ><h4 class="card-category text-black"><b><center> Phần mền thi trắc nghiệm trực tuyến không chỉ giúp cho sinh viên đại học từ xa tự học tự nghiên cứu và trau dồi kiến thức mà còn phục vụ cho học sinh các cấp, hay sinh viên học tập trung tại các trường đại học.</center></b></h4></span>
+                       <span style="text-align: left" ><h4 class="card-category text-black"><b><center> Phần mềm thi trắc nghiệm trực tuyến giúp cho công tác quản lý và tổ chức quản lý các kỳ thi thuận tiện và khách quan nhất.</center></b></h4></span>
+                       <span style="text-align: left" ><h4 class="card-category text-black"><b><center> Ngoài ra phần mềm còn hỗ trợ những thông báo từ nhà trường, từ khoa, từ các giảng viên đến với sinh viên dễ dàng</center></b></h4></span>
                       </div>
               </div>
             </div>

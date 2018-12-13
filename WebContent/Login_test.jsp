@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Web thi trắc nghiệm online</title>
+  <title>Đăng Nhập</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <link href="assets1/vendor/nucleo/css/nucleo.css" rel="stylesheet">
   <link href="assets1/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">

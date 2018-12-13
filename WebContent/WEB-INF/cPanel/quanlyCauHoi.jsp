@@ -12,14 +12,14 @@
 	href="../assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="../assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Website Demo Of Group 1</title>
+<title>Quản Lý Câu Hỏi</title>
 
 <!--     Fonts and icons     -->
 
 
 <!-- CSS Files -->
 <link
-	href="${pageContext.request.contextPath}/assets/css/material-dashboard.css?v=2.1.0"
+	href="${pageContext.request.contextPath}/assets33/css/material-dashboard.css?v=2.1.0"
 	rel="stylesheet" />
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <link
@@ -31,14 +31,14 @@
 <body class="">
 	<div class="wrapper ">
 		<div class="sidebar" data-color="purple" data-background-color="white"
-			data-image="../assets/img/sidebar-1.jpg">
+			data-image="../assets33/img/sidebar-1.jpg">
 			<!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
         Tip 2: you can also add an image using data-image tag
     -->
 			<div class="logo">
-				<a href="#" class="simple-text logo-normal"></a>
+				<img src ="assets33/img/ava.png" width ="150px" height="150px" style="margin-left:50px">
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
@@ -69,29 +69,18 @@
 				class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
 				<div class="container-fluid">
 					<div class="navbar-wrapper">
-						<a class="navbar-brand" href="#"> LẬP TRÌNH WEB </a>
-					</div>
-					<button class="navbar-toggler" type="button" data-toggle="collapse"
-						aria-controls="navigation-index" aria-expanded="false"
-						aria-label="Toggle navigation">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span>
-					</button>
-					<div class="collapse navbar-collapse justify-content-end">
-						<form class="navbar-form">
+						<form class="navbar-form" action="TimCauHoi">
 							<div class="input-group no-border">
-								<input type="text" value="" class="form-control"
-									placeholder="Tìm trong trang ...">
-								<button type="submit"
-									class="btn btn-white btn-round btn-just-icon">
-									<i>search</i>
+								<input type="text" name="noiDungCauHoi" class="form-control"
+									value="${param.noiDungCauHoi}">
+								<button class="btn btn-primary btn-round">Tìm Câu Hỏi
 									<div class="ripple-container"></div>
 								</button>
 							</div>
 						</form>
-						<a class="btn btn-primary " href="logout">Đăng xuất</a>
+					</div>
+					<div class="collapse navbar-collapse justify-content-end">
+						<a class="btn btn-primary btn-round " href="logout">Đăng xuất</a>
 					</div>
 				</div>
 			</nav>
@@ -102,10 +91,9 @@
 						<div class="card ">
 							<div class="card-header card-header-primary">
 								<div class="row">
-									<h4 class="card-title col-xs-12 my-auto ml-sm-5">Danh sách
-										câu hỏi</h4>
-									<a class="btn btn-success col-xs-12 ml-auto mr-sm-5"
-										href="redirectThemCauHoi"> Thêm câu hỏi </a>
+									<h4 class="card-title col-xs-12 my-auto ml-sm-5">Danh Sách Câu Hỏi</h4>
+									<a class="btn btn-success col-xs-12 ml-auto mr-sm-5 btn-round"
+										href="redirectThemCauHoi"> Thêm Câu Hỏi </a>
 								</div>
 							</div>
 							<div class="card-body">
@@ -114,11 +102,11 @@
 										<thead class=" text-primary">
 											<tr>
 												<th style="text-align: center;" scope="col">Mã CH</th>
-												<th style="text-align: center;" scope="col">Nội dung
-													câu hỏi</th>
-												<th style="text-align: center;" scope="col">Câu trả lời</th>
-												<th style="text-align: center;" scope="col">Đáp án đúng</th>
-												<th style="text-align: center;" scope="col">Mức độ</th>
+												<th style="text-align: center;" scope="col">Nội Dung
+													Câu Hỏi</th>
+												<th style="text-align: center;" scope="col">Câu Trả Lời</th>
+												<th style="text-align: center;" scope="col">Đáp Án Đúng</th>
+												<th style="text-align: center;" scope="col">Mức Độ</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -138,9 +126,9 @@
 												<td style="text-align: center;"><%=ds.get(i).getMaMucDo()%></td>
 												<td style="text-align: center;"><a
 													href="redirectSuaCauHoi?maCH=<%=ds.get(i).getMaCauHoi()%>&ndCH=<%=ds.get(i).getNoiDungCauHoi()%>&daA=<%=ds.get(i).isDapAn_A()%>&daB=<%=ds.get(i).isDapAn_B()%>&daC=<%=ds.get(i).isDapAn_C()%>&daD=<%=ds.get(i).isDapAn_D()%>&daDung=<%=ds.get(i).getDapAnDung()%>&mucDo=<%=ds.get(i).getMaMucDo()%>"
-													class="btn btn-info"><i class="fa fa-pencil"></i></a> <a
+													class="btn btn-info btn-round"><i class="fa fa-pencil"></i></a> <a
 													href="redirectXoaCauHoi?maCH=<%=ds.get(i).getMaCauHoi()%>"
-													class="btn btn-warning"><i class="fa fa-trash"></i></a></td>
+													class="btn btn-warning btn-round"><i class="fa fa-trash"></i></a></td>
 											</tr>
 											<%
 												}

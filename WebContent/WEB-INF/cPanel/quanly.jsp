@@ -9,14 +9,11 @@
 	href="../assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="../assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Website Demo Of Group 1</title>
+<title>Trang Chủ</title>
 <meta content-width="device-width" initial-scale="1.0"
 	maximum-scale="1.0" user-scalable="0" shrink-to-fit="no"
 	name="viewport" />
-<!--     Fonts and icons     -->
 
-
-<!-- CSS Files -->
 <link href="${pageContext.request.contextPath}/assets/css/material-dashboard.css?v=2.1.0"
 	rel="stylesheet" />
 <!-- CSS Just for demo purpose, don't include it in your project -->
@@ -29,13 +26,9 @@
 	<div class="wrapper ">
 		<div class="sidebar" data-color="purple" data-background-color="white"
 			data-image="../assets/img/sidebar-1.jpg">
-			<!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
+		
 			<div class="logo">
-				<a href="#" class="simple-text logo-normal"> GROUP 1 </a>
+				<img src ="assets33/img/ava.png" width ="150px" height="150px" style="margin-left:50px">
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
@@ -60,37 +53,25 @@
 			<nav
 				class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
 				<div class="container-fluid">
-					<div class="navbar-wrapper">
-						<a class="navbar-brand" href="#"> Web Demo</a>
-					</div>
-					<button class="navbar-toggler" type="button" data-toggle="collapse"
-						aria-controls="navigation-index" aria-expanded="false"
-						aria-label="Toggle navigation">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span>
-					</button>
 					<div class="collapse navbar-collapse justify-content-end">
-						<form class="navbar-form">
-							<div class="input-group no-border">
-								<input type="text" value="" class="form-control"
-									placeholder="Tìm kiếm ...">
-								<button type="submit"
-									class="btn btn-white btn-round btn-just-icon">
-									<i>search</i>
-									<div class="ripple-container"></div>
-								</button>
-							</div>
-						</form>
-						<a href="logout">Đăng xuất</a>
+						<a class="btn btn-primary btn-round" href="logout">Đăng xuất</a>
 					</div>
 				</div>
 			</nav>
 			<!-- End Navbar -->
 			<div class="content">
 				<div class="container-fluid">
-					<div class="row"></div>
+				
+			<div class="col-md-10">
+              <div class="card card-profile">
+                <div class="card-avatar">
+                    <img class="img" src="assets33/img/faces/tracnghiem.jpeg" />
+                </div>
+                <div class="card-body" >
+                      
+                      <span style="text-align: left" ><h4 class="card-category text-black"><b><center> Phần mềm thi trắc nghiệm là một phần mềm thiết thực cho việc thi và đánh giá kết quả học tập của sinh viên một cách thiết thực và khách quan nhất.</center></b></h4></span>
+               </div>
+               </div>
 				</div>
 			</div>
 		</div>

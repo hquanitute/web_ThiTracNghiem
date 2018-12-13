@@ -13,7 +13,7 @@
 	href="../assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="../assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Website Demo Of Group 1</title>
+<title>Thêm Đề Thi</title>
 <meta content-width="device-width" initial-scale="1.0"
 	maximum-scale="1.0" user-scalable="0" shrink-to-fit="no"
 	name="viewport" />
@@ -41,7 +41,7 @@
         Tip 2: you can also add an image using data-image tag
     -->
 			<div class="logo">
-				<a href="#" class="simple-text logo-normal"> GROUP 1 </a>
+				<img src ="assets33/img/ava.png" width ="150px" height="150px" style="margin-left:50px">
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
@@ -66,30 +66,8 @@
 			<nav
 				class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
 				<div class="container-fluid">
-					<div class="navbar-wrapper">
-						<a class="navbar-brand" href="#"> Web Demo</a>
-					</div>
-					<button class="navbar-toggler" type="button" data-toggle="collapse"
-						aria-controls="navigation-index" aria-expanded="false"
-						aria-label="Toggle navigation">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span>
-					</button>
 					<div class="collapse navbar-collapse justify-content-end">
-						<form class="navbar-form">
-							<div class="input-group no-border">
-								<input type="text" value="" class="form-control"
-									placeholder="Tìm kiếm ...">
-								<button type="submit"
-									class="btn btn-white btn-round btn-just-icon">
-									<i>search</i>
-									<div class="ripple-container"></div>
-								</button>
-							</div>
-						</form>
-						<a href="logout">Đăng xuất</a>
+						<a class="btn btn-primary btn-round" href="logout">Đăng xuất</a>
 					</div>
 				</div>
 			</nav>
@@ -100,7 +78,7 @@
 						<div class="card ">
 							<div class="card-header card-header-primary">
 								<div class="row">
-									<h4 class="card-title col-xs-12 my-auto ml-sm-5">Thêm đề thi</h4>
+									<h4 class="card-title col-xs-12 my-auto ml-sm-5">Thêm Đề Thi</h4>
 								</div>
 							</div>
 							<div class="card-body">
@@ -110,7 +88,7 @@
 											<div class="row">
 												
 												<div class="col-sm-2">
-													<h5 class="mb-0 mt-2">Học kỳ:</h5>
+													<h5 class="mb-0 mt-2">Học Kỳ:</h5>
 												</div>
 												<div class="col-sm-1">
 													<input type="text" class="form-control form-control-sm"
@@ -121,7 +99,7 @@
 											</div>
 											<div class="row">
 												<div class="col-sm-2">
-													<h5 class="mb-0 mt-2">Thời gian bắt đầu:</h5>
+													<h5 class="mb-0 mt-2">Thời Gian Bắt Đầu:</h5>
 												</div>
 												<div class="col-sm-2">
 													<input type="text" class="form-control form-control-sm"
@@ -133,7 +111,7 @@
 											</div>
 											<div class="row">
 												<div class="col-sm-2	">
-													<h5 class="mb-0 mt-2">Thời lượng:</h5>
+													<h5 class="mb-0 mt-2">Thời Lượng:</h5>
 												</div>
 												<div class="col-sm-1">
 													<input type="text" class="form-control form-control-sm"
@@ -144,7 +122,7 @@
 											</div>
 											<div class="row">
 												<div class="col-sm-2	">
-													<h5 class="mb-0 mt-2">Câu dễ:</h5>
+													<h5 class="mb-0 mt-2">Câu Dễ:</h5>
 												</div>
 												<div class="col-sm-1">
 													<input type="text" class="form-control form-control-sm"
@@ -160,7 +138,7 @@
 														style="text-align: center;" placeholder="10" required>
 												</div>
 												<div class="col-sm-2	">
-													<h5 class="mb-0 mt-2">Câu khó:</h5>
+													<h5 class="mb-0 mt-2">Câu Khó:</h5>
 												</div>
 												<div class="col-sm-1">
 													<input type="text" class="form-control form-control-sm"
@@ -171,7 +149,7 @@
 											</div>
 											<div class="row">
 												<div class="col-sm-2	">
-													<h5 class="mb-0 mt-2">Thang điểm:</h5>
+													<h5 class="mb-0 mt-2">Thang Điểm:</h5>
 												</div>
 												<div class="col-sm-1">
 													<input type="text" class="form-control form-control-sm"
@@ -180,7 +158,7 @@
 														placeholder="10" required>
 												</div>
 												<div class="col-sm-2	">
-													<h5 class="mb-0 mt-2">Kích hoạt:</h5>
+													<h5 class="mb-0 mt-2">Kích Hoạt:</h5>
 												</div>
 
 												<div class="col-sm-1">
@@ -194,10 +172,10 @@
 									</div>
 									<div class="row row justify-content-center">
 										<div class="col-ms-4 ">
-											<a href="redirectDeThi" class="btn btn-danger col-auto ">Hủy</a>
+											<a href="redirectDeThi" class="btn btn-danger col-auto btn-round ">Hủy</a>
 										</div>
 										<div class="col-ms-4 ">
-											<button class="btn btn-success col-auto ">Thêm đề thi</button>
+											<button class="btn btn-success col-auto btn-round ">Lưu Đề Thi</button>
 
 										</div>
 									</div>

@@ -12,7 +12,7 @@
 	href="../assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="../assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Web Demo Of Group 1</title>
+<title>Quản Lý Sinh Viên Trong Lớp</title>
 
 <!--     Fonts and icons     -->
 
@@ -33,7 +33,7 @@
 		<div class="sidebar" data-color="purple" data-background-color="white"
 			data-image="../assets/img/sidebar-1.jpg">
 			<div class="logo">
-				<a href="#" class="simple-text logo-normal"></a>
+				<img src ="assets33/img/ava.png" width ="150px" height="150px" style="margin-left:50px">
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
@@ -58,30 +58,8 @@
 			<nav
 				class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
 				<div class="container-fluid">
-					<div class="navbar-wrapper">
-						<a class="navbar-brand" href="#"> LẬP TRÌNH WEB</a>
-					</div>
-					<button class="navbar-toggler" type="button" data-toggle="collapse"
-						aria-controls="navigation-index" aria-expanded="false"
-						aria-label="Toggle navigation">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span>
-					</button>
 					<div class="collapse navbar-collapse justify-content-end">
-						<form class="navbar-form">
-							<div class="input-group no-border">
-								<input type="text" value="" class="form-control"
-									placeholder="Tìm trong trang ...">
-								<button type="submit"
-									class="btn btn-white btn-round btn-just-icon">
-									<i>search</i>
-									<div class="ripple-container"></div>
-								</button>
-							</div>
-						</form>
-						<a href="logout">Logout</a>
+						<a class="btn btn-primary btn-round" href="logout">Đăng xuất</a>
 					</div>
 				</div>
 			</nav>
@@ -92,7 +70,7 @@
 						<div class="card ">
 							<div class="card-header card-header-primary">
 								<div class="row">
-									<h4 class="card-title col-xs-12 my-auto ml-sm-5">Danh sách thí sinh lớp</h4>
+									<h4 class="card-title col-xs-12 my-auto ml-sm-5">Danh Sách Thí Sinh Lớp</h4>
 									<a > 
 									</a>
 								</div>
@@ -102,7 +80,7 @@
 									<div class="row">
 										<div class="col-md-4">
 											<div class="row">
-												<h5 class="mb-1 mt-3 col-sm-4">Mã thí sinh :</h5>
+												<h5 class="mb-1 mt-3 col-sm-4">Mã Thí Sinh :</h5>
 												<div class="col-md-4">
 												<input type="text"
 													class="form-control form-control-md col-md-12	"
@@ -111,7 +89,7 @@
 													value="${param.maTK}" required>
 													</div>
 												<div class = "col-md-4">
-												<button class="btn btn-outline-primary " style="" >Thêm</button>
+												<button class="btn btn-success btn-round " style="" >Thêm</button>
 												</div>
 											</div>
 											
@@ -126,11 +104,11 @@
 									<table class="table">
 										<thead class=" text-primary">
 											<tr>
-												<th style="text-align: center;" scope="col">Mã thí sinh</th>
-												<th style="text-align: center;" scope="col">Tên thí sinh</th>
-												<th style="text-align: center;" scope="col">Giới tính</th>
+												<th style="text-align: center;" scope="col">Mã Thí Sinh</th>
+												<th style="text-align: center;" scope="col">Tên Thí Sinh</th>
+												<th style="text-align: center;" scope="col">Giới Tính</th>
 												<th style="text-align: center;" scope="col">SĐT</th>
-												<th style="text-align: center;" scope="col">Học kỳ</th>
+												<th style="text-align: center;" scope="col">Học Kỳ</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -149,7 +127,7 @@
 												<td style="text-align: center;"><%=ds.get(i).getSDT()%></td>
 												<td style="text-align: center;"><%=ds.get(i).getHocKy()%></td>
 												<td style="text-align: center;">
-                                                    <a href="redirectXoaTaiKhoanLopHoc?maTK=<%=ds.get(i).getMaTK()%>&maLopHoc=<%=ds.get(i).getMaLopHoc()%>" class="btn btn-warning" ><i class="fa fa-trash"></i></a>
+                                                    <a href="redirectXoaTaiKhoanLopHoc?maTK=<%=ds.get(i).getMaTK()%>&maLopHoc=<%=ds.get(i).getMaLopHoc()%>" class="btn btn-warning btn-round" ><i class="fa fa-trash"></i></a>
                                                 </td>
 											</tr>
 											<%
@@ -161,11 +139,11 @@
 									<nav aria-label="Page navigation example">
 										<ul class="pagination justify-content-center">
 											<li class="page-item disabled"><a class="page-link"
-												href="#" tabindex="-1">Previous</a></li>
+												href="#" tabindex="-1">Trang Trước</a></li>
 											<li class="page-item"><a class="page-link" href="#">1</a></li>
 											<li class="page-item"><a class="page-link" href="#">2</a></li>
 											<li class="page-item"><a class="page-link" href="#">3</a></li>
-											<li class="page-item"><a class="page-link" href="#">Next</a>
+											<li class="page-item"><a class="page-link" href="#">Trang Sau</a>
 											</li>
 										</ul>
 									</nav>

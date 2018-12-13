@@ -14,7 +14,7 @@
 	href="../assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="../assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Website Demo Of Group 1</title>
+<title>Gán Đề Thi</title>
 <meta content-width="device-width" initial-scale="1.0"
 	maximum-scale="1.0" user-scalable="0" shrink-to-fit="no"
 	name="viewport" />
@@ -42,7 +42,7 @@
         Tip 2: you can also add an image using data-image tag
     -->
 			<div class="logo">
-				<a href="#" class="simple-text logo-normal"> GROUP 1 </a>
+				<img src ="assets33/img/ava.png" width ="150px" height="150px" style="margin-left:50px">
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
@@ -67,30 +67,8 @@
 			<nav
 				class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
 				<div class="container-fluid">
-					<div class="navbar-wrapper">
-						<a class="navbar-brand" href="#"> Web Demo</a>
-					</div>
-					<button class="navbar-toggler" type="button" data-toggle="collapse"
-						aria-controls="navigation-index" aria-expanded="false"
-						aria-label="Toggle navigation">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span>
-					</button>
 					<div class="collapse navbar-collapse justify-content-end">
-						<form class="navbar-form">
-							<div class="input-group no-border">
-								<input type="text" value="" class="form-control"
-									placeholder="Tìm kiếm ...">
-								<button type="submit"
-									class="btn btn-white btn-round btn-just-icon">
-									<i>search</i>
-									<div class="ripple-container"></div>
-								</button>
-							</div>
-						</form>
-						<a href="logout">Đăng xuất</a>
+						<a class="btn btn-primary btn-round" href="logout">Đăng xuất</a>
 					</div>
 				</div>
 			</nav>
@@ -101,8 +79,8 @@
 						<div class="card ">
 							<div class="card-header card-header-primary">
 								<div class="row">
-									<h4 class="card-title col-xs-12 my-auto ml-sm-5">Gán đề
-										thi</h4>
+									<h4 class="card-title col-xs-12 my-auto ml-sm-5">Gán Đề
+										Thi</h4>
 
 								</div>
 							</div>
@@ -111,7 +89,7 @@
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="row">
-												<h5 class="mb-0 mt-2 col-sm-4">Mã lớp học</h5>
+												<h5 class="mb-0 mt-2 col-sm-4">Mã Lớp Học</h5>
 												<input type="text"
 													class="form-control form-control-sm col-sm-4 "
 													name="a_taoDeLopHoc" aria-describedby="helpId"
@@ -121,7 +99,7 @@
 
 											<!--  -->
 											<div class="row">
-												<h5 class="mb-0 mt-2 col-sm-4">Mã đề thi</h5>
+												<h5 class="mb-0 mt-2 col-sm-4">Mã Đề Thi</h5>
 												<input type="text"
 													class="form-control form-control-sm col-sm-4"
 													name="a_taoDeDeThi" aria-describedby="helpId"
@@ -137,13 +115,13 @@
 								</form>
 
 								<div class="table-responsive">
-									<h3>Danh sách các phòng thi có sẵn</h3>
+									<h3>Danh Sách Các Phòng Thi Có Sẵn</h3>
 									<table class="table">
 										<thead class=" text-primary">
 											<tr>
-												<th scope="col">Mã phòng</th>
-												<th scope="col">Mã lớp học</th>
-												<th scope="col">Mã đề thi</th>
+												<th scope="col">Mã Phòng</th>
+												<th scope="col">Mã Lớp Học</th>
+												<th scope="col">Mã Đề Thi</th>
 												
 											</tr>
 										</thead>
@@ -170,11 +148,11 @@
 									<nav aria-label="Page navigation example">
 										<ul class="pagination justify-content-center">
 											<li class="page-item disabled"><a class="page-link"
-												href="#" tabindex="-1">Previous</a></li>
+												href="#" tabindex="-1">Trang Trước</a></li>
 											<li class="page-item"><a class="page-link" href="#">1</a></li>
 											<li class="page-item"><a class="page-link" href="#">2</a></li>
 											<li class="page-item"><a class="page-link" href="#">3</a></li>
-											<li class="page-item"><a class="page-link" href="#">Next</a>
+											<li class="page-item"><a class="page-link" href="#">Trang Sau</a>
 											</li>
 										</ul>
 									</nav>
