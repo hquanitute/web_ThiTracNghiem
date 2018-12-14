@@ -11,7 +11,7 @@ public class CAUHOI_DAO {
 		conn=database.Connect(username,password);
 	}
 	public void themCauHoi(String noiDungCauHoi, int maMucDo, String dapAn_A,String dapAn_B,String dapAn_C,String dapAn_D,String dapAnDung) throws SQLException {
-		String sql = "insert into web.cauhoi(MaCauHoi,NoiDungCauHoi,MaMucDo,DapAn_A,DapAn_B,DapAn_C,DapAn_D,DapAnDung) "
+		String sql = "insert into cauhoi(MaCauHoi,NoiDungCauHoi,MaMucDo,DapAn_A,DapAn_B,DapAn_C,DapAn_D,DapAnDung) "
 				+ "select(select coalesce((max(MaCauHoi)+1),1) from cauhoi order by MaCauHoi),"
 				+ "'"+noiDungCauHoi+"',"+maMucDo+",'"+dapAn_A+"','"+dapAn_B+"','"+dapAn_C+"','"+dapAn_D+"','"+dapAnDung+"'";
 		Statement st = conn.createStatement();
