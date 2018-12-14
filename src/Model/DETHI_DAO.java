@@ -20,7 +20,7 @@ public class DETHI_DAO {
 		conn=database.Connect(username,password);
 	}
 	public void themDeThi( int HocKy, String ThoiGian,int thoiLuong,  int SoCHDe,int SoCHTB,int SoCHKho, float ThangDiem,boolean IsActive ) throws SQLException {
-		String sql="INSERT INTO `web`.`dethi`\r\n" + 
+		String sql="INSERT INTO `dethi`\r\n" + 
 				"(`MaDeThi`,`HocKy`,`ThoiGianBatDau`,`ThoiLuong`,`SoCHDe`,`SoCHTrungBinh`,`SoCHKho`,`ThangDiem`,`IsActive`)\r\n" + 
 				"\r\n" + 
 				"select(select coalesce((max(MaDeThi)+1),1) from dethi order by MaDeThi),\r\n" + 
@@ -101,7 +101,7 @@ public class DETHI_DAO {
 		ResultSet rs=stm1.executeQuery(sql1);
 		while (rs.next()) {
 			Statement stm = conn.createStatement();
-			String sqlAdd="INSERT INTO `web`.`chitietdethi`(`MaChiTiet`,`MaCauHoi`,`MaDeThi`)\r\n" + 
+			String sqlAdd="INSERT INTO `chitietdethi`(`MaChiTiet`,`MaCauHoi`,`MaDeThi`)\r\n" + 
 					"select(select COALESCE((max(MaChiTiet)+1),1) AS LONNHAT  from chitietdethi order by MaChiTiet),"+rs.getInt(1)+","+Ma;
 			stm.executeUpdate(sqlAdd);
 		}
@@ -109,7 +109,7 @@ public class DETHI_DAO {
 		ResultSet rs2=stm1.executeQuery(sql2);
 		while (rs2.next()) {
 			Statement stm = conn.createStatement();
-			String sqlAdd="INSERT INTO `web`.`chitietdethi`(`MaChiTiet`,`MaCauHoi`,`MaDeThi`)\r\n" + 
+			String sqlAdd="INSERT INTO `chitietdethi`(`MaChiTiet`,`MaCauHoi`,`MaDeThi`)\r\n" + 
 					"select(select COALESCE((max(MaChiTiet)+1),1) AS LONNHAT from chitietdethi order by MaChiTiet),"+rs2.getInt(1)+","+Ma;
 			stm.executeUpdate(sqlAdd);
 		}
@@ -117,7 +117,7 @@ public class DETHI_DAO {
 		ResultSet rs3=stm1.executeQuery(sql3);
 		while (rs3.next()) {
 			Statement stm = conn.createStatement();
-			String sqlAdd="INSERT INTO `web`.`chitietdethi`(`MaChiTiet`,`MaCauHoi`,`MaDeThi`)\r\n" + 
+			String sqlAdd="INSERT INTO `chitietdethi`(`MaChiTiet`,`MaCauHoi`,`MaDeThi`)\r\n" + 
 					"select(select COALESCE((max(MaChiTiet)+1),1) AS LONNHAT  from chitietdethi order by MaChiTiet),"+rs3.getInt(1)+","+Ma;
 			stm.executeUpdate(sqlAdd);
 		}
@@ -143,7 +143,7 @@ public class DETHI_DAO {
 		ResultSet rs=stm1.executeQuery(sql1);
 		while (rs.next()) {
 			Statement stm = conn.createStatement();
-			String sqlAdd="INSERT INTO `web`.`chitietdethi`(`MaChiTiet`,`MaCauHoi`,`MaDeThi`)\r\n" + 
+			String sqlAdd="INSERT INTO `chitietdethi`(`MaChiTiet`,`MaCauHoi`,`MaDeThi`)\r\n" + 
 					"select(select COALESCE((max(MaChiTiet)+1),1) AS LONNHAT  from chitietdethi order by MaChiTiet),"+rs.getInt(1)+","+maDT;
 			stm.executeUpdate(sqlAdd);
 		}
@@ -151,7 +151,7 @@ public class DETHI_DAO {
 		ResultSet rs2=stm1.executeQuery(sql2);
 		while (rs2.next()) {
 			Statement stm = conn.createStatement();
-			String sqlAdd="INSERT INTO `web`.`chitietdethi`(`MaChiTiet`,`MaCauHoi`,`MaDeThi`)\r\n" + 
+			String sqlAdd="INSERT INTO `chitietdethi`(`MaChiTiet`,`MaCauHoi`,`MaDeThi`)\r\n" + 
 					"select(select COALESCE((max(MaChiTiet)+1),1) AS LONNHAT from chitietdethi order by MaChiTiet),"+rs2.getInt(1)+","+maDT;
 			stm.executeUpdate(sqlAdd);
 		}
@@ -159,7 +159,7 @@ public class DETHI_DAO {
 		ResultSet rs3=stm1.executeQuery(sql3);
 		while (rs3.next()) {
 			Statement stm = conn.createStatement();
-			String sqlAdd="INSERT INTO `web`.`chitietdethi`(`MaChiTiet`,`MaCauHoi`,`MaDeThi`)\r\n" + 
+			String sqlAdd="INSERT INTO `chitietdethi`(`MaChiTiet`,`MaCauHoi`,`MaDeThi`)\r\n" + 
 					"select(select COALESCE((max(MaChiTiet)+1),1) AS LONNHAT  from chitietdethi order by MaChiTiet),"+rs3.getInt(1)+","+maDT;
 			stm.executeUpdate(sqlAdd);
 		}
@@ -172,7 +172,7 @@ public class DETHI_DAO {
 	
 	public List<CauHoi> layCauHoiTuDeThi(int maDeThi) throws SQLException {
 		String sql ="SELECT MaDeThi,chitietdethi.MaCauHoi, NoiDungCauHoi, DapAn_A, DapAn_B, DapAn_C, DapAn_D, DapAnDung\r\n" + 
-				"FROM web.chitietdethi inner join cauhoi on chitietdethi.MaCauHoi=cauhoi.MaCauHoi\r\n" + 
+				"FROM chitietdethi inner join cauhoi on chitietdethi.MaCauHoi=cauhoi.MaCauHoi\r\n" + 
 				"where MaDeThi="+maDeThi +" order by chitietdethi.MaChiTiet ASC";
 				//+" limit "+giaTriDau+","+soLuong;
 		Statement stm=conn.createStatement();
@@ -195,7 +195,7 @@ public class DETHI_DAO {
 	//xoa
 	public int demDoCauHoiBangMaDeThi(int maDeThi) throws SQLException {
 		String sql ="SELECT MaDeThi,chitietdethi.MaCauHoi, NoiDungCauHoi, DapAn_A, DapAn_B, DapAn_C, DapAn_D, DapAnDung\r\n" + 
-				"FROM web.chitietdethi inner join cauhoi on chitietdethi.MaCauHoi=cauhoi.MaCauHoi\r\n" + 
+				"FROM chitietdethi inner join cauhoi on chitietdethi.MaCauHoi=cauhoi.MaCauHoi\r\n" + 
 				"where MaDeThi="+maDeThi;
 		Statement stm=conn.createStatement();
 		ResultSet rs=stm.executeQuery(sql);

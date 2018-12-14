@@ -12,7 +12,7 @@ public class DANGNHAP_DAO {
 		conn=database.Connect(username,password);
 	}
 	public void themDangNhap( int MaTaiKhoan, String Email,String MatKhau  ) throws SQLException {
-		String sql="INSERT INTO `web`.`dangnhap`(`MaDangNhap`,`Email`,`LoaiTaiKhoan`,`MatKhau`,`MaTaiKhoan`)\r\n" + 
+		String sql="INSERT INTO `dangnhap`(`MaDangNhap`,`Email`,`LoaiTaiKhoan`,`MatKhau`,`MaTaiKhoan`)\r\n" + 
 				"select(select COALESCE((max(MaDangNhap)+1),1) AS LONNHAT  from dangnhap order by MaDangNhap),'"+Email+"',1,'"+MatKhau+"',"+MaTaiKhoan;
 		Statement stm = conn.createStatement();
 		stm.executeUpdate(sql);

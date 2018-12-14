@@ -21,7 +21,7 @@ public class PHONGTHI_DAO {
 	}
 
 	public void themPhongThi(int maLopHoc, int maDeThi) throws SQLException {
-		String sql="INSERT INTO `web`.`phongthi`\r\n" + 
+		String sql="INSERT INTO `phongthi`\r\n" + 
 				"(MaPhong,MaLopHoc,MaDeThi)\r\n" + 
 				"\r\n" + 
 				"select(select COALESCE((max(MaPhong)+1),1) AS LONNHAT  from phongthi order by MaPhong)," + maLopHoc+","+maDeThi;	

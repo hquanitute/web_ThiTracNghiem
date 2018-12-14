@@ -28,8 +28,10 @@ public class ConnectDB
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		
 		    try {
-				conn =
-				   DriverManager.getConnection("jdbc:mysql://localhost:3306/web?autoReconnect=true&useSSL=false", "root", "root");
+		    	conn =
+						   DriverManager.getConnection("jdbc:mysql://localhost:3306/web?autoReconnect=true&useSSL=false", "root", "root");
+		    	//conn =
+				   //DriverManager.getConnection("jdbc:mysql://den1.mysql1.gear.host/webthionline?autoReconnect=true&useSSL=false", "webthionline", "Rs4n7QO!115~");
 			} catch (SQLException ex) {
 			    System.out.println("SQLException: " + ex.getMessage());
 			    System.out.println("SQLState: " + ex.getSQLState());
